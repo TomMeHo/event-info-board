@@ -1,0 +1,30 @@
+{
+  // Format on save using the Python extension (Black) and run import sorting & fixes
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  // Use the Python extension as the default formatter for Python files
+  "editor.defaultFormatter": "ms-python.python",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  // Black as the Python formatter
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [
+    "--line-length",
+    "88"
+  ],
+  // isort integration (Python extension will call this when codeActionsOnSave -> source.organizeImports is enabled)
+  "python.sortImports.args": [
+    "--profile",
+    "black"
+  ],
+  // Ruff settings - enable linting via Ruff (if you install the Ruff extension or configure the Python extension to use Ruff)
+  "python.linting.enabled": true,
+  "python.linting.ruffEnabled": true,
+  "ruff.args": [
+    "--fix"
+  ]
+}

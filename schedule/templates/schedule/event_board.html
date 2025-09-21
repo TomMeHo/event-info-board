@@ -1,0 +1,14 @@
+<h1>Zeitplan</h1>
+
+<h2>{{event.title}}</h2>
+
+<div class="event_desc">{{event.description}}</div>
+
+<ul>
+    {% for slot in slots %}
+        <li>
+            <div class="slot_start_time">{{slot.start_time}}</div>
+            <div class="slot_title">{{slot.title}}</div>
+        </li>
+    {% endfor %}
+</ul>
