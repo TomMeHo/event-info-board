@@ -2,13 +2,17 @@ from django.db import models
 from datetime import date
 
 class Event(models.Model):
+
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
+
     location = models.CharField(max_length=200, blank=True)
     firstDay = models.DateField()
     lastDay = models.DateField()
 
     active = models.BooleanField(default=True)
+
+    jjcmHash = models.CharField(max_length=64, unique=True, blank=True) # sha256 hash of the linked event from JJCM
     jjcmCompetitionId = models.IntegerField(blank=True, null=True)
 
     # default Meta (no custom app_label) — model will belong to the `schedule` app

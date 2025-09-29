@@ -16,7 +16,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         event_id = options.get("event_id")
-        events = [ event_id ] if (event_id) else Event.objects.filter(active=True).filter(~Q(jjcmCompetitionId=None)).values_list('id', flat=True)
+        events = [ event_id ] if (event_id) else Event.objects.filter(active=True).filter(~Q(jjcmCompetitionId=None)).values_list('jjcmCompetitionId', flat=True)
 
         for eventId in events:
             try:
@@ -24,37 +24,52 @@ class Command(BaseCommand):
             except Exception as e:
                 raise CommandError(f'Error retrieving schedule for event {eventId}: {e}')
             
-            eventObj = Event.objects.get(jjcmCompetitionId=eventId)
+            event_object = Event.objects.get(jjcmCompetitionId=eventId)
+            event_hash = hashlib.sha256( str(schedule).encode()).hexdigest()
             
-            for dayEntry in schedule:
-                date = eventObj.getWeekDaysDE()[dayEntry["day"]]
-                print(f"Processing schedule for date: {date}")
+            if event_object.jjcmHash != event_hash:
+                print(f"Schedule for event {event_object} has changed, updating...")
 
-                tatami_number = 0
+                slot_hashes = self._enrich_and_save_slots(schedule, event_object)
+                eps.ExternalProvidedSlot.delete_all_not_in_list(slot_hashes, event_object)
 
-                for tatami in dayEntry["tatami"]:
-                    tatami_number += 1
-                    tatami_begin = tatami["begin"] # start time on this tatami, offset to 9 AM
-                    tatami_start_time = datetime.combine(date,  self.TIME_OFFSET_START) + timedelta(minutes=tatami_begin)
-
-                    for slot in tatami["items"]:
-
-                        if "id" in slot and slot["id"][:5] == "pause":
-                            continue # skip breaks
-
-                        # adding further fields
-                        slot["hash"] = hashlib.sha256(str(slot).encode()).hexdigest()
-                        
-                        slot["event"] = eventObj
-                        slot["start"] = tatami_start_time + timedelta(minutes=slot["begin"])
-                        slot["end"] = slot["start"] + timedelta(minutes=slot["duration"])
-                        slot["tatami"] = tatami_number
-
-                        eps.ExternalProvidedSlot.createFromJjcmSchedule(slot)
-
-
+                event_object.jjcmHash = event_hash
+                event_object.save()
+            else:
+                print(f"Schedule for event '{event_object}' has not changed, skipping.")
+            
             # Placeholder for actual schedule retrieval logic
-            print(f'Successfully retrieved schedule for event: {eventId}')
+            print(f"Successfully retrieved schedule for event: {eventId} / '{event_object}'")
+
+    def _enrich_and_save_slots(self, schedule, event_object) -> list[str]:
+        hashes = []
+        for day_entry in schedule:
+            date = event_object.getWeekDaysDE()[day_entry["day"]]
+            print(f"Processing schedule for date: {date}")
+
+            tatami_number = 0
+
+            for tatami in day_entry["tatami"]:
+                tatami_number += 1
+                tatami_begin = tatami["begin"] # start time on this tatami, offset to 9 AM
+                tatami_start_time = datetime.combine(date,  self.TIME_OFFSET_START) + timedelta(minutes=tatami_begin)
+
+                for slot in tatami["items"]:
+                    if "id" in slot and slot["id"][:5] == "pause":
+                        continue # skip breaks
+
+                    slot["hash"] = hashlib.sha256(str(slot).encode()).hexdigest()
+
+                    slot["start"] = tatami_start_time + timedelta(minutes=slot["begin"])
+                    slot["end"] = slot["start"] + timedelta(minutes=slot["duration"])                        
+                    slot["event"] = event_object
+
+                    slot["tatami"] = tatami_number
+
+                    eps.ExternalProvidedSlot.create_from_jjcm_schedule(slot)
+
+                    hashes.append(slot["hash"])
+        return hashes
     
 
     @classmethod

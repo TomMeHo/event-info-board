@@ -1,9 +1,8 @@
 from django.db import models
 from .slot import Slot
+from .event import Event
 
 class ExternalProvidedSlot(Slot):
-
-    #TODO add hash to identify changes
 
     hash = models.CharField(max_length=64, unique=True, blank=True) # sha256 hash of the original slot data from JJCM
     discipline = models.CharField(max_length=200, blank=True)
@@ -19,7 +18,7 @@ class ExternalProvidedSlot(Slot):
         verbose_name_plural = "Externally Provided Time Slots"
 
     @classmethod
-    def createFromJjcmSchedule(cls, slot: dict):
+    def create_from_jjcm_schedule(cls, slot: dict):
 
         if cls.objects.filter(hash=slot["hash"]).exists():
             print(f"Slot with hash {slot['hash']} already exists, skipping.")
@@ -42,3 +41,7 @@ class ExternalProvidedSlot(Slot):
         obj.save()
         print(f"Created ExternalProvidedSlot with hash {slot['hash']}")
         return obj
+    
+    @classmethod
+    def delete_all_not_in_list(cls, hashes: list[str], event: Event):
+        cls.objects.filter(event = event).exclude(hash__in=hashes).delete()
