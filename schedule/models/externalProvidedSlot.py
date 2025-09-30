@@ -17,6 +17,10 @@ class ExternalProvidedSlot(Slot):
         verbose_name = "Externally Provided Time Slot"
         verbose_name_plural = "Externally Provided Time Slots"
 
+
+    def __str__(self) -> str:
+        return f"{self.start}: {self.discipline} / {self.category_name}"
+
     @classmethod
     def create_from_jjcm_schedule(cls, slot: dict):
 
@@ -35,6 +39,8 @@ class ExternalProvidedSlot(Slot):
             category_name = slot.get("categoryName", ""),
             type = slot.get("type", ""),
             tatami = slot["tatami"],
+
+            title = f'{slot.get("discipline", "")}: {slot.get("categoryName", "")}'
             
             # competitors = slot.get("competitors", []), # should be a list of Competitor objects
         )

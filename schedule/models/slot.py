@@ -15,3 +15,8 @@ class Slot(PolymorphicModel):
 
     def __str__(self) -> str:
         return f"{self.start}: {self.displayName()}"
+    
+    class Meta:
+        proxy = False
+        verbose_name = "Manually Created Time Slot"
+        verbose_name_plural = "Manually Created Time Slots"
