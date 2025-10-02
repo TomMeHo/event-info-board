@@ -6,9 +6,26 @@
 
 <ul>
     {% for slot in slots %}
-        <li>
-            <div class="slot_start_time">{{slot.start_time}}</div>
-            <div class="slot_title">{{slot.title}}</div>
-        </li>
+        {% if slot.type == "item" %}
+            <li>
+                <div class="slot_start">{{slot.start}}</div>
+                <div class="slot_title">{{slot.title}}</div>
+            </li>
+        {% endif %}
+        {% if slot.type == "group" %}
+            <li>
+                <div class="slot_group_start">{{slot.start}}</div>
+                <div class="slot_group_title">{{slot.title}}</div>
+                <div class="sub_slot_tatami">Matte: {{slot.tatami}}</div>
+                <ul>
+                    {% for sub_slot in slot.slots %}
+                        <li>
+                            <div class="sub_slot_start">{{sub_slot.start}}</div>
+                            <div class="sub_slot_title">{{sub_slot.title}}</div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>    
+        {% endif %}
     {% endfor %}
 </ul>
