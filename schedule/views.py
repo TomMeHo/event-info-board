@@ -8,23 +8,23 @@ from datetime import datetime
 from .models import Event, Slot, ExternalProvidedSlot
 
 def event_board(request):
-    next_event = Event.objects.filter(active=True).order_by("firstDay")[0]
-    # slots = Slot.objects.filter(event=next_event).order_by("start_time").all()
+    event = Event.objects.filter(active=True).order_by("firstDay")[0]
 
-    non_competition_slots = Slot.objects.filter(event=next_event).exclude(polymorphic_ctype=ContentType.objects.get_for_model(ExternalProvidedSlot)).all()
-    competition_slots = ExternalProvidedSlot.objects.filter(event=next_event).order_by("start").order_by("tatami").all()
+    #TODO add second day
+    
+    non_competition_slots = Slot.objects.filter(event=event).filter(start__date=event.firstDay).exclude(polymorphic_ctype=ContentType.objects.get_for_model(ExternalProvidedSlot)).all()
+    competition_slots = ExternalProvidedSlot.objects.filter(event=event).filter(start__date=event.firstDay).order_by("start").order_by("tatami").all()
    
     last_group = ""
-    slot_list = []
+    combined_slots = []
     group_node = None
 
     for slot in competition_slots:
-        # slot.started = False
-
-        # if (slot.start > datetime.now()):
-        #     slot.started = True
+        slot.started = True if (slot.start > datetime.now()) else False
+        slot.ended = True if (slot.end < datetime.now()) else False
 
         slot.title = slot.category_name
+        slot.round_type = slot.type
 
         if last_group != f"{slot.discipline} {slot.tatami}":
             last_group = f"{slot.discipline} {slot.tatami}"
@@ -32,14 +32,14 @@ def event_board(request):
 
         if group_node is None:
             group_node = { 'type': 'group', 'title': slot.discipline, 'start': slot.start, 'tatami': slot.tatami, 'slots': [] }
-            slot_list.append(group_node)
+            combined_slots.append(group_node)
 
         slot.type = 'subitem'
         group_node["slots"].append(slot)
 
     for slot in non_competition_slots:
         slot.type = 'item'
-        slot_list.append(slot)
+        combined_slots.append(slot)
 
     def extract_start(slot):
         try:
@@ -47,8 +47,9 @@ def event_board(request):
         except:
             return slot.start # the django model way...
 
-    slot_list.sort( key=extract_start )
+    combined_slots.sort( key=extract_start )
 
-    context = { 'event': next_event, 'slots': slot_list }
+
+    context = { 'event': event, 'day': event.firstDay, 'days': [{ 'slots': combined_slots }] } 
 
     return HttpResponse( loader.get_template("schedule/event_board.html").render(context, request))

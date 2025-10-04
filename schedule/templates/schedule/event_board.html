@@ -1,31 +1,43 @@
-<h1>Zeitplan</h1>
+{% extends 'bootstrap_base.html' %}
 
-<h2>{{event.title}}</h2>
+{% block title %}{{ event.title }}{% endblock %}
 
-<div class="event_desc">{{event.description}}</div>
 
-<ul>
-    {% for slot in slots %}
-        {% if slot.type == "item" %}
-            <li>
-                <div class="slot_start">{{slot.start}}</div>
-                <div class="slot_title">{{slot.title}}</div>
-            </li>
-        {% endif %}
-        {% if slot.type == "group" %}
-            <li>
-                <div class="slot_group_start">{{slot.start}}</div>
-                <div class="slot_group_title">{{slot.title}}</div>
-                <div class="sub_slot_tatami">Matte: {{slot.tatami}}</div>
-                <ul>
-                    {% for sub_slot in slot.slots %}
-                        <li>
-                            <div class="sub_slot_start">{{sub_slot.start}}</div>
-                            <div class="sub_slot_title">{{sub_slot.title}}</div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </li>    
-        {% endif %}
-    {% endfor %}
-</ul>
+{% block content %}
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col col-md-2">
+            {% load static %}
+            <img src="{% static 'tvh-logo.png' %}" width=100>
+        </div>
+        <div class="col col-md-8 text-center align-middle">
+            <h1 class="title 1">{{event.title}}</h1>
+        </div>
+        <div class="col-md-2">
+            <!-- <img src="{% static 'kishido.jpg' %}" width=100> -->
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+
+    <h2 class="subtitle 4">Zeitplan für {{ day|date:"l, j F" }}</h2>
+
+    <div class="vstack gap-3">
+        {% for day in days %}
+            {% for slot in day.slots %}
+                {% if slot.type == "item" %}
+                    {% include 'schedule/slot_card.html' %}
+                {% endif %}
+                {% if slot.type == "group" %}
+                    {% include 'schedule/slot_card.html' %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}        
+    </div>
+</div>
+
+{% endblock %}

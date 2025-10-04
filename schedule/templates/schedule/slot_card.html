@@ -1,0 +1,34 @@
+<div class="container border border-secondary-subtle rounded">
+    <div class="row align-items-center g-2">
+        <div class="col-md-2 text-center">                    
+            <span class="fs-2">
+                {{ slot.start|date:"H:i" }}
+            </span>
+        </div>
+        <div class="col-md-8">
+            <span class="fs-2">{{slot.title}}</span>
+            {% if slot.type == "group" %}
+                <ul>
+                    {% for sub_slot in slot.slots %}
+                    <li>
+                        <span class="fs-4">
+                            {% if slot.slots|length > 1 %}
+                                {{ sub_slot.start|date:"H:i" }}
+                            {% endif %}
+                            {{ sub_slot.title }}
+                            {% if sub_slot.round_type == "final" %}
+                                <span class="badge text-bg-warning">Final</span>
+                            {% endif %}
+                        </span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        {% if slot.tatami %}
+            <div class="col-md-2">
+                <span class="badge text-bg-warning fs-4">Tatami {{slot.tatami}}</span>
+            </div>
+        {% endif %}
+    </div>
+</div>
