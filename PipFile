@@ -8,6 +8,7 @@ django = "*"
 django-taggit = "*"
 requests = "*"
 django-polymorphic = "*"
+python-dotenv = "*"
 
 [dev-packages]
 coverage = "*"
