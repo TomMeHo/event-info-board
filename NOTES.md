@@ -32,4 +32,7 @@ Requires Polymorphism. A very good article is https://realpython.com/modeling-po
 ## Deployment
 
 - [Preparing deployment](https://medium.com/@anzaloquin/deploying-django-and-hugo-on-hetzner-a-complete-guide-f90f860aed42)
-- [Hosting on Hetzner](https://community.hetzner.com/tutorials/run-django-app-on-webhosting-or-managed-server)
+- [Deployment on Hetzner](https://community.hetzner.com/tutorials/run-django-app-on-webhosting-or-managed-server)
+
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.

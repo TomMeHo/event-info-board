@@ -9,6 +9,7 @@ django-taggit = "*"
 requests = "*"
 django-polymorphic = "*"
 python-dotenv = "*"
+mysqlclient = "*"
 
 [dev-packages]
 coverage = "*"
