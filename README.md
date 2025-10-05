@@ -28,3 +28,8 @@ To measure coverage, run:
 ## Time Accounting Fields
 
 Requires Polymorphism. A very good article is https://realpython.com/modeling-polymorphism-django-python/.
+
+## Deployment
+
+- [Preparing deployment](https://medium.com/@anzaloquin/deploying-django-and-hugo-on-hetzner-a-complete-guide-f90f860aed42)
+- [Hosting on Hetzner](https://community.hetzner.com/tutorials/run-django-app-on-webhosting-or-managed-server)
