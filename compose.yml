@@ -1,0 +1,14 @@
+services:
+  django-web:
+    build: .
+    container_name: django-docker
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DEBUG: ${DEBUG}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+    env_file:
+      - .env
+    volumes:
+      - ./db.sqlite3:/app/db.sqlite3

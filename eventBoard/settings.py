@@ -11,16 +11,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-
 import os
-import socket
-from dotenv import load_dotenv
 
-# Load environment variables
-if "hetzner" in socket.gethostname():
-    load_dotenv("/opt/django/.env")  # Load Hetzner production environment
-else:
-    load_dotenv(os.path.join(os.path.dirname(__file__), "../opt/.env.dev"))  # Load local development environment
+
+from dotenv import load_dotenv
+load_dotenv()  # take environment variables
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = bool(os.environ.get("DEBUG", "False"))
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1").split(",")
 
 
 # Application definition
@@ -84,24 +79,13 @@ WSGI_APPLICATION = "eventBoard.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-if "hetzner" in socket.gethostname():
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.mysql",
-            "NAME": os.getenv("DB_NAME"),
-            "USER": os.getenv("DB_USER"),
-            "PASSWORD": os.getenv("DB_PASSWORD"),
-            "HOST": os.getenv("DB_HOST"),
-            "PORT": os.getenv("DB_PORT"),
-        }
+# for this tiny installation, sqlite is good enough.
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
+}
 
 
 # Password validation
@@ -128,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "de-DE"
 
-TIME_ZONE = "CET"
+TIME_ZONE = "Europe/Berlin"
 
 USE_I18N = True
 
