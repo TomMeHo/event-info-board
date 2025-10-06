@@ -1,7 +1,7 @@
 services:
   django-web:
     build: .
-    container_name: django-docker
+    container_name: jj-event-info-board
     ports:
       - "8000:8000"
     environment:
