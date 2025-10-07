@@ -8,7 +8,12 @@ from datetime import datetime
 from .models import Event, Slot, ExternalProvidedSlot
 
 def event_board(request):
-    event = Event.objects.filter(active=True).order_by("firstDay")[0]
+    events = Event.objects.filter(active=True).order_by("firstDay")
+    event = events[0] if (len(events) > 0) else None
+
+    if (event is None):
+        context = { 'event': 'Kein Wettkampf ausgewählt.', 'day': None, 'days': [{ 'slots': [] }] } 
+        return HttpResponse( loader.get_template("schedule/event_board.html").render(context, request))
 
     #TODO add second day
     

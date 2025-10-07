@@ -11,6 +11,8 @@ django-polymorphic = "*"
 python-dotenv = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
+setuptools = "*"
+whitenoise = "*"
 
 [dev-packages]
 coverage = "*"

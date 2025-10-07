@@ -5,16 +5,21 @@ FROM python:3.10-slim AS builder
 RUN mkdir /app
 WORKDIR /app
  
+RUN apt-get upgrade && apt-get update
+
 # Set environment variables to optimize Python
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1 
 
 # Upgrade pip and install pipenv
-COPY Pipfile Pipfile.lock ./
+RUN pip uninstall -y setuptools
+RUN pip cache purge
 RUN pip install --upgrade pip
 RUN pip install pipenv
 
 # install dependencies
+COPY Pipfile Pipfile.lock ./
+RUN pipenv clean
 RUN pipenv install --system --deploy
 
 # Stage 2: Production stage
