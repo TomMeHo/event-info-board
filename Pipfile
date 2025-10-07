@@ -10,6 +10,7 @@ requests = "*"
 django-polymorphic = "*"
 python-dotenv = "*"
 gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 coverage = "*"
