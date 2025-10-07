@@ -16,6 +16,6 @@ The tool is able to collect events from the DJJB competition software and to sho
     1. `docker compose run django-web python manage.py migrate`
     1. `docker compose run django-web python manage.py createsuperuser`
     1. `docker compose run django-web python manage.py check --deploy`
-    1. `docker compose run django-web python python manage.py collectstatic`
+    1. `docker compose run django-web python manage.py collectstatic`
 
 The image is also available on dockerhub: [tomho/jj-event-info-board](https://hub.docker.com/repository/docker/tomho/jj-event-info-board/general)
