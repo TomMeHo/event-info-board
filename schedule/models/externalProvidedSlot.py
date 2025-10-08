@@ -35,8 +35,8 @@ class ExternalProvidedSlot(Slot):
 
             hash = slot["hash"],
             
-            discipline = slot.get("discipline", ""),
-            category_name = slot.get("categoryName", ""),
+            discipline = ExternalProvidedSlot.replaceTextPatterns(slot.get("discipline", "")),
+            category_name = ExternalProvidedSlot.replaceTextPatterns(slot.get("categoryName", "")),
             type = slot.get("type", ""),
             tatami = slot["tatami"],
 
@@ -51,3 +51,14 @@ class ExternalProvidedSlot(Slot):
     @classmethod
     def delete_all_not_in_list(cls, hashes: list[str], event: Event):
         cls.objects.filter(event = event).exclude(hash__in=hashes).delete()
+
+    @classmethod
+    def replaceTextPatterns(cls, txt: str) -> str:
+
+        txt = txt.replace("RandomAttack", "Random Attack")
+        txt = txt.replace("GroundFightingOpen", "Bodenkampf, offene Klasse")
+        txt = txt.replace("GroundFighting", "Bodenkampf")
+        txt = txt.replace("MALE", "Männer")
+        txt = txt.replace("FEMALE", "Frauen")
+
+        return txt
