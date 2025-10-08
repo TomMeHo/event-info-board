@@ -44,31 +44,36 @@ class Command(BaseCommand):
     def _enrich_and_save_slots(self, schedule, event_object) -> list[str]:
         hashes = []
         for day_entry in schedule:
-            date = event_object.getWeekDaysDE()[day_entry["day"]]
-            print(f"Processing schedule for date: {date}")
+            weekdays = event_object.getWeekDaysDE()
+            weekday = day_entry["day"]
+            if weekday not in weekdays:
+                print(f"Wochentag '{ weekday }' kommt nicht im aktiven Event vor. Start und Ende prüfen bzw. referenziertes JJCM-Event.")
+            else:
+                date = event_object.getWeekDaysDE()[day_entry["day"]]
+                print(f"Processing schedule for date: {date}")
 
-            tatami_number = 0
+                tatami_number = 0
 
-            for tatami in day_entry["tatami"]:
-                tatami_number += 1
-                tatami_begin = tatami["begin"] # start time on this tatami, offset to 9 AM
-                tatami_start_time = datetime.combine(date,  self.TIME_OFFSET_START) + timedelta(minutes=tatami_begin)
+                for tatami in day_entry["tatami"]:
+                    tatami_number += 1
+                    tatami_begin = tatami["begin"] # start time on this tatami, offset to 9 AM
+                    tatami_start_time = datetime.combine(date,  self.TIME_OFFSET_START) + timedelta(minutes=tatami_begin)
 
-                for slot in tatami["items"]:
-                    if "id" in slot and slot["id"][:5] == "pause":
-                        continue # skip breaks
+                    for slot in tatami["items"]:
+                        if "id" in slot and slot["id"][:5] == "pause":
+                            continue # skip breaks
 
-                    slot["hash"] = hashlib.sha256(str(slot).encode()).hexdigest()
+                        slot["hash"] = hashlib.sha256(str(slot).encode()).hexdigest()
 
-                    slot["start"] = tatami_start_time + timedelta(minutes=slot["begin"])
-                    slot["end"] = slot["start"] + timedelta(minutes=slot["duration"])                        
-                    slot["event"] = event_object
+                        slot["start"] = tatami_start_time + timedelta(minutes=slot["begin"])
+                        slot["end"] = slot["start"] + timedelta(minutes=slot["duration"])                        
+                        slot["event"] = event_object
 
-                    slot["tatami"] = tatami_number
+                        slot["tatami"] = tatami_number
 
-                    eps.ExternalProvidedSlot.create_from_jjcm_schedule(slot)
+                        eps.ExternalProvidedSlot.create_from_jjcm_schedule(slot)
 
-                    hashes.append(slot["hash"])
+                        hashes.append(slot["hash"])
         return hashes
     
 

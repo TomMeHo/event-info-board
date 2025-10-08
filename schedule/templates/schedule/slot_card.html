@@ -1,11 +1,11 @@
 <div class="container border border-secondary-subtle rounded">
-    <div class="row align-items-center g-2">
-        <div class="col-md-2 text-center">                    
+    <div class="row align-items-center g-2 m-1">
+        <div class="col-md-2 pt-1 text-center">
             <span class="fs-2">
                 {{ slot.start|date:"H:i" }}
             </span>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 pt-1">
             <span class="fs-2">{{slot.title}}</span>
             {% if slot.type == "group" %}
                 <ul>
@@ -26,8 +26,8 @@
             {% endif %}
         </div>
         {% if slot.tatami %}
-            <div class="col-md-2">
-                <span class="badge text-bg-warning fs-4">Tatami {{slot.tatami}}</span>
+            <div class="col-md-1 p-auto text-center">
+                <span class="badge text-bg-secondary fs-5">Tatami {{slot.tatami}}</span>
             </div>
         {% endif %}
     </div>
