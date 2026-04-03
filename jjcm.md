@@ -178,14 +178,176 @@ Get the competition schedule with tatamis and time slots.
 
 ## Categories
 
-### GET `/api/competitions/{id}/categories`
+### GET `/api/competitions/{id}/select`
 
-Get categories for a competition.
+**Required before fetching categories.** Selects a competition for the current session.
+
+**Response:** `200 OK`
+
+### GET `/api/competitions/{id}/{discipline}/categories`
+
+Get categories for a specific discipline. Requires competition to be selected first.
+
+**Disciplines:**
+- `random_attack`
+- `ground_fighting`
+- `ground_fighting_open`
+- `pairs`
+- `kata`
+- `team`
 
 **Response:**
 ```json
-[]
+[
+  {
+    "name": "Erwachsene, grün",
+    "category": {
+      "discipline": "RandomAttack",
+      "sex": [],
+      "age_class": [
+        {
+          "min": 18,
+          "difficulty": 3,
+          "id": 44,
+          "short": "C",
+          "competition_id": 9,
+          "name": "Erwachsene"
+        }
+      ],
+      "weight_class": [],
+      "rank_class": [
+        {
+          "id": 52,
+          "css_color": "white",
+          "competition_id": 9,
+          "css_background": "green",
+          "name": "grün"
+        }
+      ],
+      "rank": [],
+      "name": "Erwachsene, grün",
+      "id": 192,
+      "has_games": true
+    },
+    "cardinality": 13,
+    "avg_age": 21.0,
+    "min_age": 18,
+    "max_age": 25,
+    "avg_rank": 7.0,
+    "entries": [
+      {
+        "competitor_registration_id": 682,
+        "override_category_id": null,
+        "competition_id": 9,
+        "dojo_id": 22,
+        "id": 975,
+        "type": "random_attack_entry"
+      }
+    ]
+  }
+]
 ```
+
+**Category Fields:**
+| Field | Description |
+|-------|-------------|
+| `name` | Human-readable category name |
+| `category.id` | Category ID (may be null for auto-generated categories) |
+| `category.discipline` | Discipline enum value |
+| `category.age_class` | Array of age class objects |
+| `category.weight_class` | Array of weight class objects (for ground fighting) |
+| `category.rank_class` | Array of rank class objects (for random attack, pairs) |
+| `category.has_games` | Whether games have been scheduled |
+| `cardinality` | Number of entries in this category |
+| `entries` | Array of entry objects with registration references |
+
+---
+
+## Entries
+
+### GET `/api/competitions/{id}/{discipline}/entries`
+
+Get entries (discipline registrations) for a competition. Requires competition to be selected first.
+
+**Disciplines:** `random_attack`, `ground_fighting`, `ground_fighting_open`, `pairs`, `kata`, `team`
+
+**Query Parameters:**
+- `rel=members` - Include team members (for team discipline)
+
+**Response (random_attack, ground_fighting, ground_fighting_open):**
+```json
+[
+  {
+    "id": 975,
+    "type": "random_attack_entry",
+    "competition_id": 9,
+    "dojo_id": 22,
+    "competitor_registration_id": 682,
+    "override_category_id": null
+  }
+]
+```
+
+**Response (pairs):**
+```json
+[
+  {
+    "id": 1038,
+    "type": "pairs_entry",
+    "competition_id": 9,
+    "dojo_id": 22,
+    "competitor_a_registration_id": 682,
+    "competitor_b_registration_id": 684,
+    "override_category_id": null
+  }
+]
+```
+
+**Response (kata):**
+```json
+[
+  {
+    "id": 1048,
+    "type": "kata_entry",
+    "competition_id": 9,
+    "dojo_id": 22,
+    "tori_registration_id": 677,
+    "uke_registration_id": 701,
+    "override_category_id": null
+  }
+]
+```
+
+**Response (team with rel=members):**
+```json
+[
+  {
+    "id": 1053,
+    "type": "team_entry",
+    "competition_id": 9,
+    "dojo_id": 22,
+    "comment": null,
+    "override_category_id": null,
+    "members": [
+      {
+        "id": 669,
+        "competitor_id": 95,
+        "given_name": "Oliver",
+        "name": "Becker",
+        "rank_id": "SHODAN"
+      }
+    ]
+  }
+]
+```
+
+**Entry Fields by Type:**
+| Type | Fields |
+|------|--------|
+| Single competitor | `competitor_registration_id` |
+| Pairs | `competitor_a_registration_id`, `competitor_b_registration_id` |
+| Kata | `tori_registration_id`, `uke_registration_id` |
+| Team | `members[]` (array of registration objects), `comment` |
 
 ---
 
@@ -280,11 +442,11 @@ The application uses these environment variables:
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              COMPETITION                                     │
 │  id, title, description, location, firstDay, lastDay, active                │
-│  jjcmCompetitionId, jjcmHash                                                │
+│  jjcmCompetitionId, jjcmHash, jjcmEntriesHash, jjcmCategoriesHash          │
 └─────────────────────────────────────────────────────────────────────────────┘
-        │                              │
-        │ 1:N                          │ 1:N
-        ▼                              ▼
+        │                              │                              │
+        │ 1:N                          │ 1:N                          │ 1:N
+        ▼                              ▼                              ▼
 ┌───────────────────────────┐    ┌─────────────────────────────────────────┐
 │       REGISTRATION        │    │               SLOT (polymorphic)        │
 │  id                       │    │  id, start, end, title, competition_id  │
@@ -311,11 +473,29 @@ The application uses these environment variables:
 │  jjcmCompetitorId (unique)│ │  jjcmDojoId               │
 └───────────────────────────┘ └───────────────────────────┘
 
-┌───────────────────────────┐
-│           RANK            │
-│  ID (PK), name, color     │
-│  rankClass, kyu, dan      │
-└───────────────────────────┘
+┌───────────────────────────┐  ┌───────────────────────────────────────────┐
+│           RANK            │  │                CATEGORY                    │
+│  ID (PK), name, color     │  │  id, competition_id (FK)                  │
+│  rankClass, mon, kyu, dan │  │  jjcmCategoryId, name, discipline         │
+└───────────────────────────┘  │  ageClassName, ageClassId, ageClassMin    │
+                               │  weightClassName, weightClassId           │
+                               │  rankClassName, rankClassId               │
+                               │  cardinality, hasGames                    │
+                               └───────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           ENTRY (polymorphic)                                │
+│  id, competition_id (FK), dojo_id (FK), category_id (FK)                    │
+│  jjcmEntryId, overrideCategoryId                                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  SINGLECOMPETITORENTRY         │  discipline, competitor_id (FK)            │
+├────────────────────────────────┼────────────────────────────────────────────┤
+│  PAIRSENTRY                    │  competitor_a_id (FK), competitor_b_id (FK)│
+├────────────────────────────────┼────────────────────────────────────────────┤
+│  KATAENTRY                     │  tori_id (FK), uke_id (FK)                 │
+├────────────────────────────────┼────────────────────────────────────────────┤
+│  TEAMENTRY                     │  members (M:N to Registration), comment    │
+└────────────────────────────────┴────────────────────────────────────────────┘
 ```
 
 ### Key Relationships (Local DB)
@@ -327,6 +507,14 @@ The application uses these environment variables:
 | Registration | Dojo | N:1 | `dojo_id` |
 | ExternalProvidedSlot | Competition | N:1 | `competition_id` |
 | ExternalProvidedSlot | Registration | M:N | `registrations` |
+| Category | Competition | N:1 | `competition_id` |
+| Entry | Competition | N:1 | `competition_id` |
+| Entry | Dojo | N:1 | `dojo_id` |
+| Entry | Category | N:1 | `category_id` |
+| SingleCompetitorEntry | Registration | N:1 | `competitor_id` |
+| PairsEntry | Registration | N:1 | `competitor_a_id`, `competitor_b_id` |
+| KataEntry | Registration | N:1 | `tori_id`, `uke_id` |
+| TeamEntry | Registration | M:N | `members` |
 
 ### Mapping: JJCM API → Local DB
 
@@ -337,6 +525,8 @@ The application uses these environment variables:
 | Registration.competitor_id | Competitor | `competitor_id` → `jjcmCompetitorId` |
 | Dojo | Dojo | `id` → `jjcmDojoId` |
 | Schedule Item | ExternalProvidedSlot | Linked via `registrations` M:N |
+| Category | Category | `category.id` → `jjcmCategoryId` |
+| Entry | Entry (polymorphic) | `id` → `jjcmEntryId` |
 | (person fields) | Competitor | `given_name`, `name`, `sex` |
 | (competition fields) | Registration | `rank_id`, `dojo_id`, `age_class_id`, etc. |
 

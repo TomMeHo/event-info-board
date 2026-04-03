@@ -7,7 +7,10 @@ from django.db.models import Q
 import json
 from datetime import datetime
 
-from .models import Competition, Slot, ExternalProvidedSlot, Registration, Dojo
+from .models import (
+    Competition, Slot, ExternalProvidedSlot, Registration, Dojo,
+    Entry, SingleCompetitorEntry, PairsEntry, KataEntry, TeamEntry
+)
 
 
 def event_board(request):
@@ -104,7 +107,7 @@ def registrations_list(request):
 
 
 def registration_detail(request, registration_id):
-    """Show detail view for a registration including schedule slots."""
+    """Show detail view for a registration including schedule slots and entries."""
     registration = get_object_or_404(
         Registration.objects.select_related('competitor', 'dojo', 'competition'),
         pk=registration_id
@@ -113,11 +116,45 @@ def registration_detail(request, registration_id):
     # Get schedule slots for this registration
     slots = registration.slots.all().order_by('start')
 
+    # Get entries by type
+    random_attack_entries = SingleCompetitorEntry.objects.filter(
+        competitor=registration,
+        discipline=SingleCompetitorEntry.Discipline.RANDOM_ATTACK
+    ).select_related('category')
+
+    ground_fighting_entries = SingleCompetitorEntry.objects.filter(
+        competitor=registration,
+        discipline=SingleCompetitorEntry.Discipline.GROUND_FIGHTING
+    ).select_related('category')
+
+    ground_fighting_open_entries = SingleCompetitorEntry.objects.filter(
+        competitor=registration,
+        discipline=SingleCompetitorEntry.Discipline.GROUND_FIGHTING_OPEN
+    ).select_related('category')
+
+    pairs_entries = PairsEntry.objects.filter(
+        Q(competitor_a=registration) | Q(competitor_b=registration)
+    ).select_related('category', 'competitor_a__competitor', 'competitor_b__competitor')
+
+    kata_entries = KataEntry.objects.filter(
+        Q(tori=registration) | Q(uke=registration)
+    ).select_related('category', 'tori__competitor', 'uke__competitor')
+
+    team_entries = TeamEntry.objects.filter(
+        members=registration
+    ).select_related('category', 'dojo')
+
     context = {
         'event': registration.competition,
         'registration': registration,
         'competitor': registration.competitor,
         'slots': slots,
+        'random_attack_entries': random_attack_entries,
+        'ground_fighting_entries': ground_fighting_entries,
+        'ground_fighting_open_entries': ground_fighting_open_entries,
+        'pairs_entries': pairs_entries,
+        'kata_entries': kata_entries,
+        'team_entries': team_entries,
     }
 
     return HttpResponse(loader.get_template("schedule/registration_detail.html").render(context, request))
