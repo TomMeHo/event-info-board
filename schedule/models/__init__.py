@@ -5,5 +5,11 @@ from .registration import Registration
 from .ranks import Rank
 from .dojo import Dojo
 from .externalProvidedSlot import ExternalProvidedSlot
+from .category import Category
+from .entry import Entry, SingleCompetitorEntry, PairsEntry, KataEntry, TeamEntry
 
-__all__ = ["Competition", "Slot", "Competitor", "Registration", "ExternalProvidedSlot", "Rank", "Dojo"]
+__all__ = [
+    "Competition", "Slot", "Competitor", "Registration", "ExternalProvidedSlot",
+    "Rank", "Dojo", "Category", "Entry", "SingleCompetitorEntry", "PairsEntry",
+    "KataEntry", "TeamEntry"
+]

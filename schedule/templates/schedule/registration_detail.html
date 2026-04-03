@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row align-items-center">
         <div class="col col-md-2">
-            <img src="{% static 'tvh-logo.png' %}" width=100>
+            <img src="{% static 'dm2026.png' %}" width=100>
         </div>
         <div class="col col-md-8 text-center align-middle">
             <h1 class="title 1">{{ event.title }}</h1>
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <h3 class="mb-3">Angemeldete Disziplinen</h3>
+    <h3 class="mb-3">Wettkämpfe</h3>
 
     {% if slots %}
     <div class="table-responsive">
@@ -86,12 +86,171 @@
     </div>
     {% else %}
     <div class="alert alert-info">
-        Keine Disziplinen zugewiesen.
+        Keine Wettkämpfe zugewiesen.
+    </div>
+    {% endif %}
+
+    {% if random_attack_entries or ground_fighting_entries or ground_fighting_open_entries or pairs_entries or kata_entries or team_entries %}
+    <hr class="mt-4">
+    <h3 class="mb-3 mt-4">Disziplinen</h3>
+    {% endif %}
+
+    {% if random_attack_entries %}
+    <h4 class="mb-3 mt-3">Random Attack</h4>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kategorie</th>
+                    <th>Ergebnis</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in random_attack_entries %}
+                <tr>
+                    <td>{% if entry.category %}{{ entry.category.name }}{% else %}-{% endif %}</td>
+                    <td>{% if entry.result %}<span class="badge bg-success">{{ entry.result }}</span>{% else %}-{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    {% if ground_fighting_entries %}
+    <h4 class="mb-3 mt-3">Bodenkampf</h4>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kategorie</th>
+                    <th>Ergebnis</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in ground_fighting_entries %}
+                <tr>
+                    <td>{% if entry.category %}{{ entry.category.name }}{% else %}-{% endif %}</td>
+                    <td>{% if entry.result %}<span class="badge bg-success">{{ entry.result }}</span>{% else %}-{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    {% if ground_fighting_open_entries %}
+    <h4 class="mb-3 mt-3">Bodenkampf (offene Klasse)</h4>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kategorie</th>
+                    <th>Ergebnis</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in ground_fighting_open_entries %}
+                <tr>
+                    <td>{% if entry.category %}{{ entry.category.name }}{% else %}-{% endif %}</td>
+                    <td>{% if entry.result %}<span class="badge bg-success">{{ entry.result }}</span>{% else %}-{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    {% if pairs_entries %}
+    <h4 class="mb-3 mt-3">Paare</h4>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Partner</th>
+                    <th>Kategorie</th>
+                    <th>Ergebnis</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in pairs_entries %}
+                <tr>
+                    <td>
+                        {% if entry.competitor_a.id == registration.id %}
+                            {{ entry.competitor_b.competitor.givenName }} {{ entry.competitor_b.competitor.name }}
+                        {% else %}
+                            {{ entry.competitor_a.competitor.givenName }} {{ entry.competitor_a.competitor.name }}
+                        {% endif %}
+                    </td>
+                    <td>{% if entry.category %}{{ entry.category.name }}{% else %}-{% endif %}</td>
+                    <td>{% if entry.result %}<span class="badge bg-success">{{ entry.result }}</span>{% else %}-{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    {% if kata_entries %}
+    <h4 class="mb-3 mt-3">Kata</h4>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Rolle</th>
+                    <th>Partner</th>
+                    <th>Kategorie</th>
+                    <th>Ergebnis</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in kata_entries %}
+                <tr>
+                    <td>
+                        {% if entry.tori.id == registration.id %}Tori{% else %}Uke{% endif %}
+                    </td>
+                    <td>
+                        {% if entry.tori.id == registration.id %}
+                            {{ entry.uke.competitor.givenName }} {{ entry.uke.competitor.name }}
+                        {% else %}
+                            {{ entry.tori.competitor.givenName }} {{ entry.tori.competitor.name }}
+                        {% endif %}
+                    </td>
+                    <td>{% if entry.category %}{{ entry.category.name }}{% else %}-{% endif %}</td>
+                    <td>{% if entry.result %}<span class="badge bg-success">{{ entry.result }}</span>{% else %}-{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    {% if team_entries %}
+    <h4 class="mb-3 mt-3">Team</h4>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Verein</th>
+                    <th>Kategorie</th>
+                    <th>Ergebnis</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in team_entries %}
+                <tr>
+                    <td>{% if entry.dojo %}{{ entry.dojo.name }}{% else %}-{% endif %}</td>
+                    <td>{% if entry.category %}{{ entry.category.name }}{% else %}-{% endif %}</td>
+                    <td>{% if entry.result %}<span class="badge bg-success">{{ entry.result }}</span>{% else %}-{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
     {% endif %}
 
     <div class="mt-4">
-        <a href="{% url 'registrations_list' %}" class="btn btn-outline-secondary">Zurück zur Teilnehmerliste</a>
+        <a href="{% url 'registrations_list' %}" class="btn btn-outline-secondary">Zur Teilnehmerliste</a>
         <a href="{% url 'schedule_compact' %}" class="btn btn-outline-secondary">Zum Zeitplan</a>
     </div>
 </div>

@@ -36,11 +36,20 @@ docker compose run django-web python manage.py collectstatic   # Collect static 
 
 ### Data Sync Commands
 ```bash
+python manage.py getAll                             # Sync all data for active competition
+python manage.py getAll <JJCM_ID>                   # Sync all data for specific competition
+python manage.py getAll --force                     # Force sync even if unchanged
 python manage.py getCompetitions                    # Sync all competitions from JJCM
 python manage.py getCompetitions --activate <ID>    # Sync and activate specific competition
 python manage.py getSchedule                        # Sync schedule for active competitions
 python manage.py getSchedule <JJCM_ID>              # Sync schedule for specific competition
 python manage.py getCompetitors <JJCM_ID>           # Sync competitors for competition
+python manage.py getCategories <JJCM_ID>            # Sync categories per discipline (requires auth)
+python manage.py getCategories --discipline kata    # Sync categories for specific discipline
+python manage.py getCategories --force              # Force reload even if unchanged
+python manage.py getEntries <JJCM_ID>               # Sync entries per discipline (requires auth)
+python manage.py getEntries --discipline pairs      # Sync entries for specific discipline
+python manage.py getEntries --force                 # Force reload even if unchanged
 python manage.py loaddata rank                      # Load rank fixtures (DJJB graduation system)
 ```
 
@@ -95,7 +104,9 @@ Belt visualization is rendered dynamically by `Rank.get_belt_html()`. CSS styles
 
 ### Data Sync Architecture
 Management commands in `schedule/management/commands/` sync from JJCM API:
-- Uses SHA256 hashing for change detection (computed in model's `save()` method)
+- Uses SHA256 hashing for change detection (schedule, entries, categories)
+- Hash fields on Competition model: `jjcmHash` (schedule), `jjcmEntriesHash`, `jjcmCategoriesHash`
+- Use `--force` flag to reload even if data hasn't changed
 - Only one Competition can be `active=True` at a time
 - API documentation and sample data in `jjcm.md` and `jjcm_samples/`
 

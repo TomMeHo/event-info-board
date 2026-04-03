@@ -14,6 +14,8 @@ class Competition(models.Model):
     active = models.BooleanField(default=True)
 
     jjcmHash = models.CharField(max_length=64, blank=True, null=True)  # sha256 hash of the schedule from JJCM
+    jjcmEntriesHash = models.CharField(max_length=64, blank=True, null=True)  # sha256 hash of entries
+    jjcmCategoriesHash = models.CharField(max_length=64, blank=True, null=True)  # sha256 hash of categories
     jjcmCompetitionId = models.IntegerField(blank=True, null=True, unique=True)
 
     class Meta:
