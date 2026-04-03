@@ -1,0 +1,66 @@
+{% extends 'bootstrap_base.html' %}
+
+{% block title %}Zeitplan - {% if event %}{{ event.title }}{% else %}Kein Wettkampf{% endif %}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col col-md-2">
+            <img src="{% static 'tvh-logo.png' %}" width=100>
+        </div>
+        <div class="col col-md-8 text-center align-middle">
+            <h1 class="title 1">{% if event %}{{ event.title }}{% else %}Kein Wettkampf ausgewählt{% endif %}</h1>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <h2 class="mb-4">Zeitplan</h2>
+
+    {% if event %}
+    {% for day in days %}
+    <h3 class="mt-4 mb-3">{{ day.date|date:"l, j. F Y" }}</h3>
+    <div class="table-responsive">
+        <table class="table table-sm table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 100px;">Zeit</th>
+                    <th>Disziplin</th>
+                    <th>Kategorie</th>
+                    <th style="width: 80px;">Tatami</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for slot in day.slots %}
+                <tr style="cursor: pointer;" onclick="window.location='{% url 'slot_detail' slot.id %}'">
+                    <td>{{ slot.start|date:"H:i" }}</td>
+                    <td>{{ slot.discipline }}{% if slot.type == "final" %} <span class="badge bg-warning text-dark">Finale</span>{% endif %}</td>
+                    <td>{{ slot.category_name }}</td>
+                    <td>
+                        <span class="badge {% if slot.tatami == 1 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">1</span>
+                        <span class="badge {% if slot.tatami == 2 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">2</span>
+                        <span class="badge {% if slot.tatami == 3 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">3</span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% empty %}
+    <div class="alert alert-info">Kein Zeitplan vorhanden.</div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="mt-4">
+        <a href="{% url 'registrations_list' %}" class="btn btn-outline-secondary">Teilnehmerliste</a>
+        <a href="{% url 'event_board' %}" class="btn btn-outline-secondary">Info-Board</a>
+    </div>
+</div>
+
+{% endblock %}

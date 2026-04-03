@@ -1,0 +1,39 @@
+{% if rank == "HAKKYU" %}
+8. Kyu (Hachikyu) <span class="belt belt-white{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "NANAKYU" %}
+7. Kyu (Nanakyu) <span class="belt belt-yellow{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "ROKKYU" %}
+6. Kyu (Rokkyu) <span class="belt belt-green{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "GOKYU" %}
+5. Kyu (Gokyu) <span class="belt belt-green{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "YONKYU" %}
+4. Kyu (Yonkyu) <span class="belt belt-blue{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "SANKYU" %}
+3. Kyu (Sankyu) <span class="belt belt-blue{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "NIKYU" %}
+2. Kyu (Nikyu) <span class="belt belt-brown{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "IKKYU" %}
+1. Kyu (Ikkyu) <span class="belt belt-brown{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "SHODAN" %}
+1. Dan (Shodan) <span class="belt belt-black{% if float_end %} float-end{% endif %}"><span class="belt-stripe-yellow" style="right: 8px;"></span></span>
+{% elif rank == "NIDAN" %}
+2. Dan (Nidan) <span class="belt belt-black{% if float_end %} float-end{% endif %}"><span class="belt-stripe-yellow" style="right: 8px;"></span><span class="belt-stripe-yellow" style="right: 16px;"></span></span>
+{% elif rank == "SANDAN" %}
+3. Dan (Sandan) <span class="belt belt-black{% if float_end %} float-end{% endif %}"><span class="belt-stripe-yellow" style="right: 8px;"></span><span class="belt-stripe-yellow" style="right: 16px;"></span><span class="belt-stripe-yellow" style="right: 24px;"></span></span>
+{% elif rank == "YONDAN" %}
+4. Dan (Yondan) <span class="belt belt-black{% if float_end %} float-end{% endif %}"><span class="belt-stripe-yellow" style="right: 8px;"></span><span class="belt-stripe-yellow" style="right: 16px;"></span><span class="belt-stripe-yellow" style="right: 24px;"></span><span class="belt-stripe-yellow" style="right: 32px;"></span></span>
+{% elif rank == "GODAN" %}
+5. Dan (Godan) <span class="belt belt-black{% if float_end %} float-end{% endif %}"><span class="belt-stripe-yellow" style="right: 8px;"></span><span class="belt-stripe-yellow" style="right: 16px;"></span><span class="belt-stripe-yellow" style="right: 24px;"></span><span class="belt-stripe-yellow" style="right: 32px;"></span><span class="belt-stripe-yellow" style="right: 40px;"></span></span>
+{% elif rank == "ROKUDAN" %}
+6. Dan (Rokudan) <span class="belt belt-red-white{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "SHICHIDAN" %}
+7. Dan (Shichidan) <span class="belt belt-red-white{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "HACHIDAN" %}
+8. Dan (Hachidan) <span class="belt belt-red-white{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "KUDAN" %}
+9. Dan (Kudan) <span class="belt belt-red{% if float_end %} float-end{% endif %}"></span>
+{% elif rank == "JUDAN" %}
+10. Dan (Judan) <span class="belt belt-red{% if float_end %} float-end{% endif %}"></span>
+{% else %}
+{{ rank|default:"-" }}
+{% endif %}

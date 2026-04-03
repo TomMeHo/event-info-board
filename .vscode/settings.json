@@ -26,5 +26,8 @@
   "python.linting.ruffEnabled": true,
   "ruff.args": [
     "--fix"
-  ]
+  ],
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
