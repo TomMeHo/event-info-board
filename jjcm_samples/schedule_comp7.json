@@ -1,0 +1,146 @@
+[
+    {
+        "day": "Samstag",
+        "tatami": [
+            {
+                "begin": 65,
+                "items": [
+                    {
+                        "begin": 65,
+                        "duration": 7,
+                        "categoryId": 201,
+                        "discipline": "Team",
+                        "categoryName": "Jugendliche",
+                        "cardinality": 1,
+                        "competitors": [],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 7,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 72,
+                        "duration": 5,
+                        "id": "pause-bbd0ed6c-194d-4dd1-aa9e-cf9234f227cf",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 77,
+                        "duration": 3.5,
+                        "categoryId": 205,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Kinder, orange/gr\u00fcn",
+                        "cardinality": 2,
+                        "competitors": [
+                            705,
+                            707
+                        ],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 3.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 80.5,
+                        "duration": 5,
+                        "id": "pause-e35f119b-96db-4341-ba01-138c56633653",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 85.5,
+                        "duration": 10.5,
+                        "categoryId": 206,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Jugendliche, orange/gr\u00fcn",
+                        "cardinality": 3,
+                        "competitors": [
+                            706,
+                            708,
+                            703
+                        ],
+                        "type": "final",
+                        "numberOfGames": 3,
+                        "timePerGame": 3.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 96,
+                        "duration": 5,
+                        "id": "pause-3f198ec1-dc47-4556-a5f1-f77574978560",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 101,
+                        "duration": 9,
+                        "categoryId": 207,
+                        "discipline": "GroundFighting",
+                        "categoryName": "Kinder; m\u00e4nnlich, leicht",
+                        "cardinality": 3,
+                        "competitors": [
+                            705,
+                            709,
+                            718
+                        ],
+                        "type": "final",
+                        "numberOfGames": 3,
+                        "timePerGame": 3,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 110,
+                        "duration": 5,
+                        "id": "pause-97da5fd3-1563-4116-8d45-d6660d102fca",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 115,
+                        "duration": 3,
+                        "categoryId": 204,
+                        "discipline": "GroundFighting",
+                        "categoryName": "Jugendliche; m\u00e4nnlich, schwer",
+                        "cardinality": 2,
+                        "competitors": [
+                            704,
+                            717
+                        ],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 3,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 118,
+                        "duration": 5,
+                        "id": "pause-ee844c2a-04d5-476d-ae00-a3ca98da98bb",
+                        "conflict": false
+                    }
+                ]
+            },
+            {
+                "begin": 60,
+                "items": []
+            },
+            {
+                "begin": 60,
+                "items": []
+            }
+        ]
+    },
+    {
+        "day": "Sonntag",
+        "tatami": [
+            {
+                "begin": 60,
+                "items": []
+            },
+            {
+                "begin": 60,
+                "items": []
+            },
+            {
+                "begin": 60,
+                "items": []
+            }
+        ]
+    }
+]

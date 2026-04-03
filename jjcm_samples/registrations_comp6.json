@@ -1,0 +1,2462 @@
+[
+    {
+        "birthdate": "2006-12-04",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": 141,
+        "weight": 70.5,
+        "dojo_id": 14,
+        "age": 17,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Gandalf",
+        "id": 523,
+        "competitor_id": 389,
+        "competition_id": 6,
+        "name": "Stormborn",
+        "dojo": {
+            "name": "Dragonborn Dojo Mülheim",
+            "id": 14
+        }
+    },
+    {
+        "birthdate": "1992-02-25",
+        "rank_class_id": 32,
+        "age_class_id": 29,
+        "weight_class_id": 146,
+        "weight": 79.9,
+        "dojo_id": 20,
+        "age": 32,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Radagast",
+        "id": 524,
+        "competitor_id": 390,
+        "competition_id": 6,
+        "name": "Goldenhelm",
+        "dojo": {
+            "name": "Phoenix Rising Erftstadt",
+            "id": 20
+        }
+    },
+    {
+        "birthdate": "1979-04-26",
+        "rank_class_id": 37,
+        "age_class_id": 30,
+        "weight_class_id": 155,
+        "weight": 90.9,
+        "dojo_id": 20,
+        "age": 45,
+        "sex": "MALE",
+        "rank_id": "SHODAN",
+        "given_name": "Orion",
+        "id": 525,
+        "competitor_id": 1,
+        "competition_id": 6,
+        "name": "Shadowmere",
+        "dojo": {
+            "name": "Phoenix Rising Erftstadt",
+            "id": 20
+        }
+    },
+    {
+        "birthdate": "2007-06-04",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": 140,
+        "weight": 65.6,
+        "dojo_id": 20,
+        "age": 16,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Sigurd",
+        "id": 526,
+        "competitor_id": 13,
+        "competition_id": 6,
+        "name": "Yellowstone",
+        "dojo": {
+            "name": "Phoenix Rising Erftstadt",
+            "id": 20
+        }
+    },
+    {
+        "birthdate": "2007-06-12",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 16,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Peregrin",
+        "id": 528,
+        "competitor_id": 70,
+        "competition_id": 6,
+        "name": "Serpentscale",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2004-12-18",
+        "rank_class_id": 34,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 19,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Rumil",
+        "id": 529,
+        "competitor_id": 73,
+        "competition_id": 6,
+        "name": "Underhill",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2002-12-14",
+        "rank_class_id": 34,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 21,
+        "sex": "FEMALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Rosa",
+        "id": 530,
+        "competitor_id": 88,
+        "competition_id": 6,
+        "name": "Dragonborn",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1985-03-24",
+        "rank_class_id": 37,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 39,
+        "sex": "FEMALE",
+        "rank_id": "NIDAN",
+        "given_name": "Liora",
+        "id": 531,
+        "competitor_id": 98,
+        "competition_id": 6,
+        "name": "Starfall",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1998-04-09",
+        "rank_class_id": 37,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 26,
+        "sex": "FEMALE",
+        "rank_id": "SHODAN",
+        "given_name": "Ursula",
+        "id": 532,
+        "competitor_id": 103,
+        "competition_id": 6,
+        "name": "Underwood",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1991-02-23",
+        "rank_class_id": 36,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 33,
+        "sex": "MALE",
+        "rank_id": "YONKYU",
+        "given_name": "Haldir",
+        "id": 533,
+        "competitor_id": 104,
+        "competition_id": 6,
+        "name": "Clearwater",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1995-09-28",
+        "rank_class_id": 37,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 28,
+        "sex": "FEMALE",
+        "rank_id": "NIDAN",
+        "given_name": "Winifred",
+        "id": 534,
+        "competitor_id": 106,
+        "competition_id": 6,
+        "name": "Valewood",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1991-09-13",
+        "rank_class_id": 37,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 32,
+        "sex": "MALE",
+        "rank_id": "NIDAN",
+        "given_name": "Magnus",
+        "id": 535,
+        "competitor_id": 108,
+        "competition_id": 6,
+        "name": "Kingsley",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1965-04-21",
+        "rank_class_id": 37,
+        "age_class_id": 31,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 59,
+        "sex": "MALE",
+        "rank_id": "SHODAN",
+        "given_name": "Caspian",
+        "id": 536,
+        "competitor_id": 116,
+        "competition_id": 6,
+        "name": "Trueheart",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1962-03-21",
+        "rank_class_id": 37,
+        "age_class_id": 31,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 62,
+        "sex": "FEMALE",
+        "rank_id": "SHODAN",
+        "given_name": "Guinevere",
+        "id": 537,
+        "competitor_id": 118,
+        "competition_id": 6,
+        "name": "Northgate",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1994-05-11",
+        "rank_class_id": 37,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 29,
+        "sex": "MALE",
+        "rank_id": "NIDAN",
+        "given_name": "Ulric",
+        "id": 538,
+        "competitor_id": 152,
+        "competition_id": 6,
+        "name": "Dawnstrider",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2006-07-16",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 17,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Frodo",
+        "id": 539,
+        "competitor_id": 288,
+        "competition_id": 6,
+        "name": "Wolfbane",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2008-11-17",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 15,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Zephyr",
+        "id": 540,
+        "competitor_id": 295,
+        "competition_id": 6,
+        "name": "Eagleeye",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2007-04-09",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 17,
+        "sex": "FEMALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Aredhel",
+        "id": 541,
+        "competitor_id": 300,
+        "competition_id": 6,
+        "name": "Thunderhelm",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2006-09-29",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 17,
+        "sex": "FEMALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Idril",
+        "id": 542,
+        "competitor_id": 301,
+        "competition_id": 6,
+        "name": "Oldcastle",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2009-04-04",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 15,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Ivar",
+        "id": 543,
+        "competitor_id": 302,
+        "competition_id": 6,
+        "name": "Quicksilver",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2009-02-22",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 15,
+        "sex": "FEMALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Goldberry",
+        "id": 544,
+        "competitor_id": 304,
+        "competition_id": 6,
+        "name": "Stormwind",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2009-01-16",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 15,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Baldric",
+        "id": 545,
+        "competitor_id": 305,
+        "competition_id": 6,
+        "name": "Lakewood",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2008-10-13",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 15,
+        "sex": "FEMALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Mirabella",
+        "id": 546,
+        "competitor_id": 306,
+        "competition_id": 6,
+        "name": "Swiftarrow",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2006-10-17",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 17,
+        "sex": "FEMALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Rosie",
+        "id": 547,
+        "competitor_id": 310,
+        "competition_id": 6,
+        "name": "Sunfire",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1977-03-13",
+        "rank_class_id": 35,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 47,
+        "sex": "MALE",
+        "rank_id": "GOKYU",
+        "given_name": "Roderick",
+        "id": 548,
+        "competitor_id": 320,
+        "competition_id": 6,
+        "name": "Darkmoor",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1976-07-30",
+        "rank_class_id": 37,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 47,
+        "sex": "MALE",
+        "rank_id": "SHODAN",
+        "given_name": "Bilbo",
+        "id": 549,
+        "competitor_id": 321,
+        "competition_id": 6,
+        "name": "Jadestone",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1990-03-14",
+        "rank_class_id": 37,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 34,
+        "sex": "MALE",
+        "rank_id": "SHODAN",
+        "given_name": "Cedric",
+        "id": 550,
+        "competitor_id": 324,
+        "competition_id": 6,
+        "name": "Darkhollow",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2009-07-06",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 14,
+        "sex": "FEMALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Petra",
+        "id": 551,
+        "competitor_id": 367,
+        "competition_id": 6,
+        "name": "Zephyrblade",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1975-07-26",
+        "rank_class_id": 35,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 48,
+        "sex": "FEMALE",
+        "rank_id": "GOKYU",
+        "given_name": "Esmeralda",
+        "id": 552,
+        "competitor_id": 369,
+        "competition_id": 6,
+        "name": "Stonefist",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1972-04-26",
+        "rank_class_id": 35,
+        "age_class_id": 31,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 52,
+        "sex": "MALE",
+        "rank_id": "GOKYU",
+        "given_name": "Lindir",
+        "id": 553,
+        "competitor_id": 374,
+        "competition_id": 6,
+        "name": "Ironwood",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1978-07-13",
+        "rank_class_id": 35,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 45,
+        "sex": "FEMALE",
+        "rank_id": "GOKYU",
+        "given_name": "Brielle",
+        "id": 554,
+        "competitor_id": 375,
+        "competition_id": 6,
+        "name": "Riverdale",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1985-08-12",
+        "rank_class_id": 37,
+        "age_class_id": 30,
+        "weight_class_id": 154,
+        "weight": 78.2,
+        "dojo_id": 19,
+        "age": 38,
+        "sex": "MALE",
+        "rank_id": "SHODAN",
+        "given_name": "Gareth",
+        "id": 555,
+        "competitor_id": 391,
+        "competition_id": 6,
+        "name": "Blackthorn",
+        "dojo": {
+            "name": "TVG Steele",
+            "id": 19
+        }
+    },
+    {
+        "birthdate": "1990-06-18",
+        "rank_class_id": 33,
+        "age_class_id": 29,
+        "weight_class_id": 146,
+        "weight": 79.4,
+        "dojo_id": 19,
+        "age": 33,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Xander",
+        "id": 556,
+        "competitor_id": 392,
+        "competition_id": 6,
+        "name": "Frostborne",
+        "dojo": {
+            "name": "TVG Steele",
+            "id": 19
+        }
+    },
+    {
+        "birthdate": "2004-08-31",
+        "rank_class_id": 34,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 19,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Jareth",
+        "id": 557,
+        "competitor_id": 58,
+        "competition_id": 6,
+        "name": "Hawkwing",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2013-05-01",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 11,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Fenris",
+        "id": 559,
+        "competitor_id": 393,
+        "competition_id": 6,
+        "name": "Blackwood",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2013-06-21",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 10,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Wulfric",
+        "id": 560,
+        "competitor_id": 394,
+        "competition_id": 6,
+        "name": "Redmane",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2011-07-31",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 12,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Cirdan",
+        "id": 561,
+        "competitor_id": 395,
+        "competition_id": 6,
+        "name": "Lightforge",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2012-07-24",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 11,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Faramir",
+        "id": 562,
+        "competitor_id": 396,
+        "competition_id": 6,
+        "name": "Moonshade",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2012-12-22",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 11,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Thorin",
+        "id": 563,
+        "competitor_id": 397,
+        "competition_id": 6,
+        "name": "Meadowbrook",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2010-09-07",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 13,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Tristan",
+        "id": 564,
+        "competitor_id": 398,
+        "competition_id": 6,
+        "name": "Duskfall",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2011-08-11",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 12,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Finduilas",
+        "id": 565,
+        "competitor_id": 399,
+        "competition_id": 6,
+        "name": "Icevein",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2012-10-02",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 11,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Samwise",
+        "id": 566,
+        "competitor_id": 400,
+        "competition_id": 6,
+        "name": "Pinewood",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2013-11-27",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 10,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Glorfindel",
+        "id": 567,
+        "competitor_id": 401,
+        "competition_id": 6,
+        "name": "Juniper",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2012-04-23",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": 138,
+        "weight": 43.2,
+        "dojo_id": 22,
+        "age": 12,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Quilla",
+        "id": 568,
+        "competitor_id": 402,
+        "competition_id": 6,
+        "name": "Holloway",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2010-07-19",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 13,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Legolas",
+        "id": 569,
+        "competitor_id": 403,
+        "competition_id": 6,
+        "name": "Frostwhisper",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2013-01-03",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 11,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Lobelia",
+        "id": 570,
+        "competitor_id": 404,
+        "competition_id": 6,
+        "name": "Ashborne",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2007-10-18",
+        "rank_class_id": 32,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 16,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Eldric",
+        "id": 572,
+        "competitor_id": 406,
+        "competition_id": 6,
+        "name": "Deepforge",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1990-01-30",
+        "rank_class_id": 32,
+        "age_class_id": 29,
+        "weight_class_id": 149,
+        "weight": 47.0,
+        "dojo_id": 22,
+        "age": 34,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Nerida",
+        "id": 574,
+        "competitor_id": 408,
+        "competition_id": 6,
+        "name": "Winterfell",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1978-11-14",
+        "rank_class_id": 32,
+        "age_class_id": 30,
+        "weight_class_id": 157,
+        "weight": 67.0,
+        "dojo_id": 22,
+        "age": 45,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Luthien",
+        "id": 575,
+        "competitor_id": 409,
+        "competition_id": 6,
+        "name": "Flameheart",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1985-05-27",
+        "rank_class_id": 32,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 38,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Belladonna",
+        "id": 576,
+        "competitor_id": 410,
+        "competition_id": 6,
+        "name": "Bearclaw",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1981-02-19",
+        "rank_class_id": 34,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 43,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Gimli",
+        "id": 577,
+        "competitor_id": 411,
+        "competition_id": 6,
+        "name": "Nightshade",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2006-12-25",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": 141,
+        "weight": 77.9,
+        "dojo_id": 22,
+        "age": 17,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Bard",
+        "id": 578,
+        "competitor_id": 63,
+        "competition_id": 6,
+        "name": "Yearwood",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1982-02-22",
+        "rank_class_id": 35,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 42,
+        "sex": "MALE",
+        "rank_id": "GOKYU",
+        "given_name": "Gildor",
+        "id": 579,
+        "competitor_id": 168,
+        "competition_id": 6,
+        "name": "Xenith",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2008-01-17",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": 143,
+        "weight": 66.1,
+        "dojo_id": 22,
+        "age": 16,
+        "sex": "FEMALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Juliana",
+        "id": 580,
+        "competitor_id": 286,
+        "competition_id": 6,
+        "name": "Fairwind",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1981-08-24",
+        "rank_class_id": 37,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 42,
+        "sex": "MALE",
+        "rank_id": "YONDAN",
+        "given_name": "Thranduil",
+        "id": 581,
+        "competitor_id": 412,
+        "competition_id": 6,
+        "name": "Starweaver",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1976-05-29",
+        "rank_class_id": 37,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 47,
+        "sex": "MALE",
+        "rank_id": "NIDAN",
+        "given_name": "Aldric",
+        "id": 582,
+        "competitor_id": 113,
+        "competition_id": 6,
+        "name": "Highwater",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2000-03-19",
+        "rank_class_id": 36,
+        "age_class_id": 29,
+        "weight_class_id": 144,
+        "weight": 68.0,
+        "dojo_id": 22,
+        "age": 24,
+        "sex": "MALE",
+        "rank_id": "YONKYU",
+        "given_name": "Elrond",
+        "id": 584,
+        "competitor_id": 109,
+        "competition_id": 6,
+        "name": "Evergreen",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "2008-02-28",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 16,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Saruman",
+        "id": 585,
+        "competitor_id": 293,
+        "competition_id": 6,
+        "name": "Lionheart",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1977-02-01",
+        "rank_class_id": 35,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 47,
+        "sex": "MALE",
+        "rank_id": "GOKYU",
+        "given_name": "Henrik",
+        "id": 586,
+        "competitor_id": 318,
+        "competition_id": 6,
+        "name": "Phoenixfire",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1963-09-07",
+        "rank_class_id": 37,
+        "age_class_id": 31,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 8,
+        "age": 60,
+        "sex": "MALE",
+        "rank_id": "NIDAN",
+        "given_name": "Meriadoc",
+        "id": 587,
+        "competitor_id": 198,
+        "competition_id": 6,
+        "name": "Cloudwalker",
+        "dojo": {
+            "name": "SC-Bushido Düsseldorf",
+            "id": 8
+        }
+    },
+    {
+        "birthdate": "1969-01-03",
+        "rank_class_id": 37,
+        "age_class_id": 31,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 8,
+        "age": 55,
+        "sex": "MALE",
+        "rank_id": "SANDAN",
+        "given_name": "Dorian",
+        "id": 588,
+        "competitor_id": 199,
+        "competition_id": 6,
+        "name": "Crystalbrook",
+        "dojo": {
+            "name": "SC-Bushido Düsseldorf",
+            "id": 8
+        }
+    },
+    {
+        "birthdate": "2006-01-11",
+        "rank_class_id": 33,
+        "age_class_id": 29,
+        "weight_class_id": 146,
+        "weight": 77.2,
+        "dojo_id": 14,
+        "age": 18,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Orophin",
+        "id": 589,
+        "competitor_id": 413,
+        "competition_id": 6,
+        "name": "Proudfoot",
+        "dojo": {
+            "name": "Dragonborn Dojo Mülheim",
+            "id": 14
+        }
+    },
+    {
+        "birthdate": "2008-07-15",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": 140,
+        "weight": 55.3,
+        "dojo_id": 14,
+        "age": 15,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Kael",
+        "id": 590,
+        "competitor_id": 414,
+        "competition_id": 6,
+        "name": "Moonshadow",
+        "dojo": {
+            "name": "Dragonborn Dojo Mülheim",
+            "id": 14
+        }
+    },
+    {
+        "birthdate": "1989-08-05",
+        "rank_class_id": 32,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 22,
+        "age": 34,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Erwin",
+        "id": 591,
+        "competitor_id": 415,
+        "competition_id": 6,
+        "name": "Goldweaver",
+        "dojo": {
+            "name": "Starweaver Academy",
+            "id": 22
+        }
+    },
+    {
+        "birthdate": "1990-09-18",
+        "rank_class_id": 37,
+        "age_class_id": 29,
+        "weight_class_id": 153,
+        "weight": 84.8,
+        "dojo_id": 3,
+        "age": 33,
+        "sex": "FEMALE",
+        "rank_id": "SHODAN",
+        "given_name": "Seraphina",
+        "id": 592,
+        "competitor_id": 330,
+        "competition_id": 6,
+        "name": "Nightingale",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "2007-12-12",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": 140,
+        "weight": 63.6,
+        "dojo_id": 3,
+        "age": 16,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Varian",
+        "id": 593,
+        "competitor_id": 335,
+        "competition_id": 6,
+        "name": "Oakenshield",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "2008-06-14",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 3,
+        "age": 15,
+        "sex": "FEMALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Freya",
+        "id": 594,
+        "competitor_id": 337,
+        "competition_id": 6,
+        "name": "Vanguard",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "2009-07-13",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 3,
+        "age": 14,
+        "sex": "FEMALE",
+        "rank_id": "SANMON",
+        "given_name": "Galadriel",
+        "id": 595,
+        "competitor_id": 339,
+        "competition_id": 6,
+        "name": "Ironforge",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "2013-01-12",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": 136,
+        "weight": 43.9,
+        "dojo_id": 3,
+        "age": 11,
+        "sex": "MALE",
+        "rank_id": "GOMON",
+        "given_name": "Alaric",
+        "id": 596,
+        "competitor_id": 416,
+        "competition_id": 6,
+        "name": "Ravencrest",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "2008-02-12",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 3,
+        "age": 16,
+        "sex": "FEMALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Elanor",
+        "id": 597,
+        "competitor_id": 338,
+        "competition_id": 6,
+        "name": "Emberheart",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "1973-06-29",
+        "rank_class_id": 37,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 3,
+        "age": 50,
+        "sex": "FEMALE",
+        "rank_id": "SHODAN",
+        "given_name": "Haleth",
+        "id": 598,
+        "competitor_id": 5,
+        "competition_id": 6,
+        "name": "Brightblade",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "1974-04-06",
+        "rank_class_id": 35,
+        "age_class_id": 30,
+        "weight_class_id": 155,
+        "weight": 113.4,
+        "dojo_id": 25,
+        "age": 50,
+        "sex": "MALE",
+        "rank_id": "GOKYU",
+        "given_name": "Aragorn",
+        "id": 599,
+        "competitor_id": 343,
+        "competition_id": 6,
+        "name": "Silverleaf",
+        "dojo": {
+            "name": "Bonsaido",
+            "id": 25
+        }
+    },
+    {
+        "birthdate": "2013-12-16",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": 138,
+        "weight": 26.5,
+        "dojo_id": 3,
+        "age": 10,
+        "sex": "FEMALE",
+        "rank_id": "GOMON",
+        "given_name": "Mirella",
+        "id": 600,
+        "competitor_id": 417,
+        "competition_id": 6,
+        "name": "Ashford",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "2009-08-06",
+        "rank_class_id": 32,
+        "age_class_id": 28,
+        "weight_class_id": 140,
+        "weight": 61.9,
+        "dojo_id": 3,
+        "age": 14,
+        "sex": "MALE",
+        "rank_id": "GOMON",
+        "given_name": "Eomer",
+        "id": 601,
+        "competitor_id": 418,
+        "competition_id": 6,
+        "name": "Oakheart",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "2013-12-12",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": 138,
+        "weight": 45.6,
+        "dojo_id": 3,
+        "age": 10,
+        "sex": "FEMALE",
+        "rank_id": "GOMON",
+        "given_name": "Celestia",
+        "id": 602,
+        "competitor_id": 419,
+        "competition_id": 6,
+        "name": "Grimshaw",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "2013-08-01",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 3,
+        "age": 10,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Galadriel",
+        "id": 603,
+        "competitor_id": 420,
+        "competition_id": 6,
+        "name": "Highmountain",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "1974-06-20",
+        "rank_class_id": 37,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 25,
+        "age": 49,
+        "sex": "MALE",
+        "rank_id": "NIDAN",
+        "given_name": "Beorn",
+        "id": 604,
+        "competitor_id": 341,
+        "competition_id": 6,
+        "name": "Whitestone",
+        "dojo": {
+            "name": "Bonsaido",
+            "id": 25
+        }
+    },
+    {
+        "birthdate": "1971-09-19",
+        "rank_class_id": 37,
+        "age_class_id": 31,
+        "weight_class_id": 159,
+        "weight": 94.0,
+        "dojo_id": 25,
+        "age": 52,
+        "sex": "MALE",
+        "rank_id": "SHODAN",
+        "given_name": "Quinlan",
+        "id": 605,
+        "competitor_id": 205,
+        "competition_id": 6,
+        "name": "Thornwood",
+        "dojo": {
+            "name": "Bonsaido",
+            "id": 25
+        }
+    },
+    {
+        "birthdate": "2008-11-27",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": 141,
+        "weight": 85.7,
+        "dojo_id": 3,
+        "age": 15,
+        "sex": "MALE",
+        "rank_id": "SANMON",
+        "given_name": "Celeborn",
+        "id": 607,
+        "competitor_id": 336,
+        "competition_id": 6,
+        "name": "Queensbury",
+        "dojo": {
+            "name": "Bushido Mülheim",
+            "id": 3
+        }
+    },
+    {
+        "birthdate": "1989-10-12",
+        "rank_class_id": 37,
+        "age_class_id": 29,
+        "weight_class_id": 148,
+        "weight": 103.7,
+        "dojo_id": 2,
+        "age": 34,
+        "sex": "MALE",
+        "rank_id": "NIDAN",
+        "given_name": "Lysander",
+        "id": 608,
+        "competitor_id": 32,
+        "competition_id": 6,
+        "name": "Kingsguard",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1992-07-04",
+        "rank_class_id": 37,
+        "age_class_id": 29,
+        "weight_class_id": 147,
+        "weight": 85.3,
+        "dojo_id": 2,
+        "age": 31,
+        "sex": "MALE",
+        "rank_id": "SHODAN",
+        "given_name": "Theoden",
+        "id": 609,
+        "competitor_id": 33,
+        "competition_id": 6,
+        "name": "Stormborn",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1995-05-04",
+        "rank_class_id": 36,
+        "age_class_id": 29,
+        "weight_class_id": 145,
+        "weight": 69.5,
+        "dojo_id": 2,
+        "age": 29,
+        "sex": "MALE",
+        "rank_id": "IKKYU",
+        "given_name": "Derrick",
+        "id": 610,
+        "competitor_id": 35,
+        "competition_id": 6,
+        "name": "Goldenhelm",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2000-01-07",
+        "rank_class_id": 36,
+        "age_class_id": 29,
+        "weight_class_id": 145,
+        "weight": 70.7,
+        "dojo_id": 2,
+        "age": 24,
+        "sex": "MALE",
+        "rank_id": "NIKYU",
+        "given_name": "Percival",
+        "id": 611,
+        "competitor_id": 40,
+        "competition_id": 6,
+        "name": "Shadowmere",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1964-08-10",
+        "rank_class_id": 37,
+        "age_class_id": 31,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 2,
+        "age": 59,
+        "sex": "MALE",
+        "rank_id": "SHODAN",
+        "given_name": "Erkenbrand",
+        "id": 612,
+        "competitor_id": 56,
+        "competition_id": 6,
+        "name": "Yellowstone",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2002-01-16",
+        "rank_class_id": 33,
+        "age_class_id": 29,
+        "weight_class_id": 146,
+        "weight": 81.0,
+        "dojo_id": 2,
+        "age": 22,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Bastian",
+        "id": 614,
+        "competitor_id": 350,
+        "competition_id": 6,
+        "name": "Serpentscale",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2008-08-08",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": 140,
+        "weight": 63.4,
+        "dojo_id": 2,
+        "age": 15,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Nolan",
+        "id": 615,
+        "competitor_id": 378,
+        "competition_id": 6,
+        "name": "Underhill",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2008-12-26",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": 142,
+        "weight": 62.8,
+        "dojo_id": 2,
+        "age": 15,
+        "sex": "FEMALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Eowyn",
+        "id": 616,
+        "competitor_id": 379,
+        "competition_id": 6,
+        "name": "Dragonborn",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1991-10-22",
+        "rank_class_id": 34,
+        "age_class_id": 29,
+        "weight_class_id": 148,
+        "weight": 91.2,
+        "dojo_id": 2,
+        "age": 32,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Boromir",
+        "id": 617,
+        "competitor_id": 380,
+        "competition_id": 6,
+        "name": "Starfall",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2010-10-12",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": 136,
+        "weight": 48.9,
+        "dojo_id": 2,
+        "age": 13,
+        "sex": "MALE",
+        "rank_id": "GOMON",
+        "given_name": "Gandalf",
+        "id": 618,
+        "competitor_id": 383,
+        "competition_id": 6,
+        "name": "Underwood",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2011-01-31",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": 136,
+        "weight": 37.1,
+        "dojo_id": 2,
+        "age": 13,
+        "sex": "MALE",
+        "rank_id": "GOMON",
+        "given_name": "Radagast",
+        "id": 619,
+        "competitor_id": 384,
+        "competition_id": 6,
+        "name": "Clearwater",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1984-05-06",
+        "rank_class_id": 34,
+        "age_class_id": 30,
+        "weight_class_id": 155,
+        "weight": 93.2,
+        "dojo_id": 2,
+        "age": 39,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Orion",
+        "id": 621,
+        "competitor_id": 386,
+        "competition_id": 6,
+        "name": "Valewood",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2008-12-14",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": 141,
+        "weight": 71.4,
+        "dojo_id": 2,
+        "age": 15,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Sigurd",
+        "id": 622,
+        "competitor_id": 388,
+        "competition_id": 6,
+        "name": "Kingsley",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2007-07-05",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": 142,
+        "weight": 56.4,
+        "dojo_id": 2,
+        "age": 16,
+        "sex": "FEMALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Rowena",
+        "id": 623,
+        "competitor_id": 422,
+        "competition_id": 6,
+        "name": "Trueheart",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2007-09-16",
+        "rank_class_id": 32,
+        "age_class_id": 28,
+        "weight_class_id": 141,
+        "weight": 84.6,
+        "dojo_id": 2,
+        "age": 16,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Peregrin",
+        "id": 624,
+        "competitor_id": 423,
+        "competition_id": 6,
+        "name": "Northgate",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2007-11-19",
+        "rank_class_id": 32,
+        "age_class_id": 28,
+        "weight_class_id": 142,
+        "weight": 62.8,
+        "dojo_id": 2,
+        "age": 16,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Cordelia",
+        "id": 627,
+        "competitor_id": 426,
+        "competition_id": 6,
+        "name": "Dawnstrider",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1970-11-09",
+        "rank_class_id": 36,
+        "age_class_id": 31,
+        "weight_class_id": 158,
+        "weight": 78.7,
+        "dojo_id": 2,
+        "age": 53,
+        "sex": "MALE",
+        "rank_id": "NIKYU",
+        "given_name": "Rumil",
+        "id": 628,
+        "competitor_id": 427,
+        "competition_id": 6,
+        "name": "Wolfbane",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2009-03-17",
+        "rank_class_id": 32,
+        "age_class_id": 28,
+        "weight_class_id": 143,
+        "weight": 65.4,
+        "dojo_id": 2,
+        "age": 15,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Brianna",
+        "id": 629,
+        "competitor_id": 428,
+        "competition_id": 6,
+        "name": "Eagleeye",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1985-09-30",
+        "rank_class_id": 32,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 2,
+        "age": 38,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Haldir",
+        "id": 630,
+        "competitor_id": 429,
+        "competition_id": 6,
+        "name": "Thunderhelm",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1969-05-16",
+        "rank_class_id": 37,
+        "age_class_id": 31,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 2,
+        "age": 54,
+        "sex": "MALE",
+        "rank_id": "YONDAN",
+        "given_name": "Magnus",
+        "id": 632,
+        "competitor_id": 431,
+        "competition_id": 6,
+        "name": "Oldcastle",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1976-05-28",
+        "rank_class_id": 37,
+        "age_class_id": 30,
+        "weight_class_id": 154,
+        "weight": 85.9,
+        "dojo_id": 2,
+        "age": 47,
+        "sex": "MALE",
+        "rank_id": "NIDAN",
+        "given_name": "Caspian",
+        "id": 633,
+        "competitor_id": 432,
+        "competition_id": 6,
+        "name": "Quicksilver",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "2010-09-17",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": 139,
+        "weight": 59.6,
+        "dojo_id": 18,
+        "age": 13,
+        "sex": "FEMALE",
+        "rank_id": "GOMON",
+        "given_name": "Dahlia",
+        "id": 634,
+        "competitor_id": 433,
+        "competition_id": 6,
+        "name": "Stormwind",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2007-10-29",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 16,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Ulric",
+        "id": 635,
+        "competitor_id": 179,
+        "competition_id": 6,
+        "name": "Lakewood",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "1981-03-21",
+        "rank_class_id": 34,
+        "age_class_id": 30,
+        "weight_class_id": 157,
+        "weight": 66.0,
+        "dojo_id": 18,
+        "age": 43,
+        "sex": "FEMALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Katarina",
+        "id": 636,
+        "competitor_id": 182,
+        "competition_id": 6,
+        "name": "Swiftarrow",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2010-09-08",
+        "rank_class_id": 33,
+        "age_class_id": 27,
+        "weight_class_id": 137,
+        "weight": 78.7,
+        "dojo_id": 18,
+        "age": 13,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Frodo",
+        "id": 637,
+        "competitor_id": 353,
+        "competition_id": 6,
+        "name": "Sunfire",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2010-09-08",
+        "rank_class_id": 33,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 13,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Zephyr",
+        "id": 638,
+        "competitor_id": 354,
+        "competition_id": 6,
+        "name": "Darkmoor",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2009-10-01",
+        "rank_class_id": 33,
+        "age_class_id": 28,
+        "weight_class_id": 141,
+        "weight": 71.4,
+        "dojo_id": 18,
+        "age": 14,
+        "sex": "MALE",
+        "rank_id": "SANMON",
+        "given_name": "Ivar",
+        "id": 639,
+        "competitor_id": 356,
+        "competition_id": 6,
+        "name": "Jadestone",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2011-10-21",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": 139,
+        "weight": 52.5,
+        "dojo_id": 18,
+        "age": 12,
+        "sex": "FEMALE",
+        "rank_id": "GOMON",
+        "given_name": "Pearl",
+        "id": 640,
+        "competitor_id": 357,
+        "competition_id": 6,
+        "name": "Darkhollow",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2013-02-18",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 11,
+        "sex": "MALE",
+        "rank_id": "GOMON",
+        "given_name": "Baldric",
+        "id": 641,
+        "competitor_id": 359,
+        "competition_id": 6,
+        "name": "Zephyrblade",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2008-01-04",
+        "rank_class_id": 34,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 16,
+        "sex": "MALE",
+        "rank_id": "ROKKYU",
+        "given_name": "Roderick",
+        "id": 642,
+        "competitor_id": 361,
+        "competition_id": 6,
+        "name": "Stonefist",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2011-06-19",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 12,
+        "sex": "FEMALE",
+        "rank_id": "GOMON",
+        "given_name": "Elwing",
+        "id": 643,
+        "competitor_id": 362,
+        "competition_id": 6,
+        "name": "Ironwood",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2011-03-18",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 13,
+        "sex": "FEMALE",
+        "rank_id": "GOMON",
+        "given_name": "Valentina",
+        "id": 644,
+        "competitor_id": 363,
+        "competition_id": 6,
+        "name": "Riverdale",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2012-10-20",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 11,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Astrid",
+        "id": 646,
+        "competitor_id": 434,
+        "competition_id": 6,
+        "name": "Blackthorn",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2012-05-20",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 11,
+        "sex": "MALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Bilbo",
+        "id": 647,
+        "competitor_id": 435,
+        "competition_id": 6,
+        "name": "Frostborne",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "1992-12-07",
+        "rank_class_id": 32,
+        "age_class_id": 29,
+        "weight_class_id": 153,
+        "weight": 75.5,
+        "dojo_id": 18,
+        "age": 31,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Morwen",
+        "id": 648,
+        "competitor_id": 436,
+        "competition_id": 6,
+        "name": "Hawkwing",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2010-10-22",
+        "rank_class_id": 33,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 13,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Cedric",
+        "id": 649,
+        "competitor_id": 437,
+        "competition_id": 6,
+        "name": "Blackwood",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "2013-10-23",
+        "rank_class_id": 32,
+        "age_class_id": 27,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 18,
+        "age": 10,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Daphne",
+        "id": 650,
+        "competitor_id": 439,
+        "competition_id": 6,
+        "name": "Redmane",
+        "dojo": {
+            "name": "TV-Hochstetten 1904 Kishido",
+            "id": 18
+        }
+    },
+    {
+        "birthdate": "1985-10-27",
+        "rank_class_id": 32,
+        "age_class_id": 30,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 6,
+        "age": 38,
+        "sex": "FEMALE",
+        "rank_id": "HAKKYU",
+        "given_name": "Arwen",
+        "id": 651,
+        "competitor_id": 440,
+        "competition_id": 6,
+        "name": "Lightforge",
+        "dojo": {
+            "name": "Jiu-Jitsu Club Ransbach-Baumbach",
+            "id": 6
+        }
+    },
+    {
+        "birthdate": "1992-10-06",
+        "rank_class_id": 37,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 6,
+        "age": 31,
+        "sex": "MALE",
+        "rank_id": "NIDAN",
+        "given_name": "Lindir",
+        "id": 652,
+        "competitor_id": 151,
+        "competition_id": 6,
+        "name": "Moonshade",
+        "dojo": {
+            "name": "Jiu-Jitsu Club Ransbach-Baumbach",
+            "id": 6
+        }
+    },
+    {
+        "birthdate": "2002-09-27",
+        "rank_class_id": 36,
+        "age_class_id": 29,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 6,
+        "age": 21,
+        "sex": "MALE",
+        "rank_id": "SANKYU",
+        "given_name": "Gareth",
+        "id": 653,
+        "competitor_id": 157,
+        "competition_id": 6,
+        "name": "Meadowbrook",
+        "dojo": {
+            "name": "Jiu-Jitsu Club Ransbach-Baumbach",
+            "id": 6
+        }
+    },
+    {
+        "birthdate": "2009-09-17",
+        "rank_class_id": 32,
+        "age_class_id": 28,
+        "weight_class_id": null,
+        "weight": null,
+        "dojo_id": 6,
+        "age": 14,
+        "sex": "MALE",
+        "rank_id": "GOMON",
+        "given_name": "Xander",
+        "id": 654,
+        "competitor_id": 441,
+        "competition_id": 6,
+        "name": "Duskfall",
+        "dojo": {
+            "name": "Jiu-Jitsu Club Ransbach-Baumbach",
+            "id": 6
+        }
+    },
+    {
+        "birthdate": "1961-02-14",
+        "rank_class_id": 37,
+        "age_class_id": 31,
+        "weight_class_id": 158,
+        "weight": 69.1,
+        "dojo_id": 13,
+        "age": 63,
+        "sex": "MALE",
+        "rank_id": "YONDAN",
+        "given_name": "Jareth",
+        "id": 655,
+        "competitor_id": 442,
+        "competition_id": 6,
+        "name": "Icevein",
+        "dojo": {
+            "name": "TBF - Bushido Essen Frintrop",
+            "id": 13
+        }
+    },
+    {
+        "birthdate": "1999-06-20",
+        "rank_class_id": 36,
+        "age_class_id": 29,
+        "weight_class_id": 147,
+        "weight": 88.9,
+        "dojo_id": 2,
+        "age": 24,
+        "sex": "MALE",
+        "rank_id": "NIKYU",
+        "given_name": "Fenris",
+        "id": 656,
+        "competitor_id": 39,
+        "competition_id": 6,
+        "name": "Pinewood",
+        "dojo": {
+            "name": "Bujindo Mülheim",
+            "id": 2
+        }
+    },
+    {
+        "birthdate": "1999-05-16",
+        "rank_class_id": 33,
+        "age_class_id": 29,
+        "weight_class_id": 148,
+        "weight": 107.0,
+        "dojo_id": 8,
+        "age": 24,
+        "sex": "MALE",
+        "rank_id": "NANAKYU",
+        "given_name": "Wulfric",
+        "id": 657,
+        "competitor_id": 443,
+        "competition_id": 6,
+        "name": "Juniper",
+        "dojo": {
+            "name": "SC-Bushido Düsseldorf",
+            "id": 8
+        }
+    }
+]
