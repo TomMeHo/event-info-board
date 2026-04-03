@@ -1,0 +1,616 @@
+[
+    {
+        "day": "Samstag",
+        "tatami": [
+            {
+                "begin": 60,
+                "items": [
+                    {
+                        "begin": 60,
+                        "duration": 27,
+                        "categoryId": 188,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Erwachsene, blau/braun",
+                        "cardinality": 4,
+                        "competitors": [
+                            670,
+                            661,
+                            673,
+                            676
+                        ],
+                        "type": "pre",
+                        "numberOfGames": 6,
+                        "timePerGame": 4.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 87,
+                        "duration": 3,
+                        "id": "pause-c28e6c2f-1802-4da3-a6bf-b69c74ea8d8f",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 90,
+                        "duration": 55,
+                        "categoryId": 189,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Erwachsene, schwarz",
+                        "cardinality": 6,
+                        "competitors": [
+                            669,
+                            672,
+                            680,
+                            674,
+                            675,
+                            702
+                        ],
+                        "type": "pre",
+                        "numberOfGames": 10,
+                        "timePerGame": 5.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 145,
+                        "duration": 5,
+                        "id": "pause-0b69ed0a-4100-47fd-8f46-7048415f060c",
+                        "conflict": false
+                    }
+                ]
+            },
+            {
+                "begin": 45,
+                "items": [
+                    {
+                        "begin": 45,
+                        "duration": 7,
+                        "categoryId": 198,
+                        "discipline": "Team",
+                        "categoryName": "Erwachsene",
+                        "cardinality": 1,
+                        "competitors": [],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 7,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 52,
+                        "duration": 8,
+                        "id": "pause-cb45fd52-7603-4fee-a753-6c85dab7d8dd",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 60,
+                        "duration": 88,
+                        "categoryId": 176,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Senioren I, braun/schwarz",
+                        "cardinality": 9,
+                        "competitors": [
+                            689,
+                            701,
+                            671,
+                            690,
+                            677,
+                            693,
+                            691,
+                            692,
+                            695
+                        ],
+                        "type": "pre",
+                        "numberOfGames": 16,
+                        "timePerGame": 5.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 148,
+                        "duration": 25,
+                        "id": "pause-eff97998-a3c1-45ae-bc58-19cbfb28d682",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 173,
+                        "duration": 50,
+                        "categoryId": 196,
+                        "discipline": "GroundFightingOpen",
+                        "categoryName": "MALE",
+                        "cardinality": 6,
+                        "competitors": [
+                            669,
+                            681,
+                            661,
+                            683,
+                            677,
+                            687
+                        ],
+                        "type": "pre",
+                        "numberOfGames": 10,
+                        "timePerGame": 5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 223,
+                        "duration": 5,
+                        "id": "pause-2d40469c-33e1-4bc6-8f87-27ae327b64d8",
+                        "conflict": false
+                    }
+                ]
+            },
+            {
+                "begin": 60,
+                "items": [
+                    {
+                        "begin": 60,
+                        "duration": 108,
+                        "categoryId": 192,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Erwachsene, gr\u00fcn",
+                        "cardinality": 13,
+                        "competitors": [
+                            682,
+                            659,
+                            660,
+                            681,
+                            666,
+                            662,
+                            684,
+                            685,
+                            667,
+                            663,
+                            664,
+                            665,
+                            668
+                        ],
+                        "type": "pre",
+                        "numberOfGames": 24,
+                        "timePerGame": 4.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 168,
+                        "duration": 5,
+                        "id": "pause-6b597a4b-0045-4fc0-8e77-8940cc587314",
+                        "conflict": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "day": "Sonntag",
+        "tatami": [
+            {
+                "begin": 0,
+                "items": [
+                    {
+                        "begin": 0,
+                        "duration": 5,
+                        "categoryId": 179,
+                        "discipline": "Pairs",
+                        "categoryName": "Senioren I, braun/schwarz",
+                        "cardinality": 2,
+                        "competitors": [
+                            678,
+                            679,
+                            695,
+                            693
+                        ],
+                        "type": "final",
+                        "numberOfGames": 2,
+                        "timePerGame": 2.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 5,
+                        "duration": 5,
+                        "id": "pause-4acebc61-ac8c-4114-8387-7583dcfe06a1",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 10,
+                        "duration": 16.5,
+                        "categoryId": 177,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Senioren II, braun/schwarz",
+                        "cardinality": 3,
+                        "competitors": [
+                            678,
+                            694,
+                            679
+                        ],
+                        "type": "final",
+                        "numberOfGames": 3,
+                        "timePerGame": 5.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 26.5,
+                        "duration": 5,
+                        "id": "pause-d1b76f82-21dc-430a-a67b-1bdb856790ce",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 31.5,
+                        "duration": 11,
+                        "categoryId": 176,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Senioren I, braun/schwarz",
+                        "cardinality": 9,
+                        "competitors": [
+                            689,
+                            701,
+                            671,
+                            690,
+                            677,
+                            693,
+                            691,
+                            692,
+                            695
+                        ],
+                        "type": "final",
+                        "numberOfGames": 2,
+                        "timePerGame": 5.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 42.5,
+                        "duration": 5,
+                        "id": "pause-32605dee-06b2-4a4b-b86e-f2606101a74e",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 47.5,
+                        "duration": 5,
+                        "categoryId": 194,
+                        "discipline": "GroundFighting",
+                        "categoryName": "Erwachsene; m\u00e4nnlich, bis 75 kg",
+                        "cardinality": 2,
+                        "competitors": [
+                            661,
+                            676
+                        ],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 52.5,
+                        "duration": 5,
+                        "id": "pause-0b49a95b-2820-4a09-b047-3a77b4733606",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 57.5,
+                        "duration": 9,
+                        "categoryId": 192,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Erwachsene, gr\u00fcn",
+                        "cardinality": 13,
+                        "competitors": [
+                            682,
+                            659,
+                            660,
+                            681,
+                            666,
+                            662,
+                            684,
+                            685,
+                            667,
+                            663,
+                            664,
+                            665,
+                            668
+                        ],
+                        "type": "final",
+                        "numberOfGames": 2,
+                        "timePerGame": 4.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 66.5,
+                        "duration": 5,
+                        "id": "pause-08433fc4-c672-4070-b610-8695cb345cb4",
+                        "conflict": false
+                    }
+                ]
+            },
+            {
+                "begin": 0,
+                "items": [
+                    {
+                        "begin": 0,
+                        "duration": 4,
+                        "categoryId": 184,
+                        "discipline": "Kata",
+                        "categoryName": "Senioren I; DJJB-Kata 1 bis 3; \"Kata waffenlos\"",
+                        "cardinality": 1,
+                        "competitors": [
+                            677,
+                            701
+                        ],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 4,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 4,
+                        "duration": 5,
+                        "id": "pause-d7922c8c-0e78-4649-98ac-509093c5a66b",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 9,
+                        "duration": 4,
+                        "categoryId": 183,
+                        "discipline": "Kata",
+                        "categoryName": "Erwachsene; DJJB-Kata 4 bis 6; \"Waffenkata\"",
+                        "cardinality": 1,
+                        "competitors": [
+                            675,
+                            680
+                        ],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 4,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 13,
+                        "duration": 5,
+                        "id": "pause-d46b75f9-fd0d-4209-84c5-ea72de907f92",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 18,
+                        "duration": 4,
+                        "categoryId": 182,
+                        "discipline": "Kata",
+                        "categoryName": "Erwachsene; DJJB-Kata 1 bis 3; \"Kata waffenlos\"",
+                        "cardinality": 1,
+                        "competitors": [
+                            672,
+                            692
+                        ],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 4,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 22,
+                        "duration": 5,
+                        "id": "pause-2d11d3d6-dfd4-4768-b6d4-b93ed983ce50",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 27,
+                        "duration": 7.5,
+                        "categoryId": 199,
+                        "discipline": "Pairs",
+                        "categoryName": "Erwachsene, gr\u00fcn",
+                        "cardinality": 3,
+                        "competitors": [
+                            682,
+                            684,
+                            667,
+                            663,
+                            664,
+                            665
+                        ],
+                        "type": "final",
+                        "numberOfGames": 3,
+                        "timePerGame": 2.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 34.5,
+                        "duration": 5,
+                        "id": "pause-473d98aa-cbcd-4d05-a424-8401f821ceff",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 39.5,
+                        "duration": 11,
+                        "categoryId": 189,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Erwachsene, schwarz",
+                        "cardinality": 6,
+                        "competitors": [
+                            669,
+                            672,
+                            680,
+                            674,
+                            675,
+                            702
+                        ],
+                        "type": "final",
+                        "numberOfGames": 2,
+                        "timePerGame": 5.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 50.5,
+                        "duration": 5,
+                        "id": "pause-9e4c58ca-3d09-4b8c-88ad-b4d0add50e03",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 55.5,
+                        "duration": 10,
+                        "categoryId": 178,
+                        "discipline": "Pairs",
+                        "categoryName": "Erwachsene, braun/schwarz",
+                        "cardinality": 4,
+                        "competitors": [
+                            672,
+                            692,
+                            675,
+                            680,
+                            669,
+                            674,
+                            676,
+                            670
+                        ],
+                        "type": "final",
+                        "numberOfGames": 4,
+                        "timePerGame": 2.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 65.5,
+                        "duration": 5,
+                        "id": "pause-9c3d84a3-cd7d-4da9-bc67-b73aaca0ff70",
+                        "conflict": false
+                    }
+                ]
+            },
+            {
+                "begin": 0,
+                "items": [
+                    {
+                        "begin": 0,
+                        "duration": 15,
+                        "categoryId": 197,
+                        "discipline": "GroundFightingOpen",
+                        "categoryName": "FEMALE",
+                        "cardinality": 3,
+                        "competitors": [
+                            682,
+                            698,
+                            697
+                        ],
+                        "type": "final",
+                        "numberOfGames": 3,
+                        "timePerGame": 5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 15,
+                        "duration": 5,
+                        "id": "pause-43986f02-fed8-4f06-b4aa-773c975418fb",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 20,
+                        "duration": 10,
+                        "categoryId": 196,
+                        "discipline": "GroundFightingOpen",
+                        "categoryName": "MALE",
+                        "cardinality": 6,
+                        "competitors": [
+                            669,
+                            681,
+                            661,
+                            683,
+                            677,
+                            687
+                        ],
+                        "type": "final",
+                        "numberOfGames": 2,
+                        "timePerGame": 5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 30,
+                        "duration": 5,
+                        "id": "pause-a5b9fa60-27a9-4b4e-8fcb-5508dfaffc7d",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 35,
+                        "duration": 3,
+                        "categoryId": 195,
+                        "discipline": "GroundFighting",
+                        "categoryName": "Jugendliche; m\u00e4nnlich, leicht",
+                        "cardinality": 2,
+                        "competitors": [
+                            683,
+                            687
+                        ],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 3,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 38,
+                        "duration": 5,
+                        "id": "pause-915988bb-7cc2-470a-b715-3ae918814371",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 43,
+                        "duration": 5,
+                        "categoryId": 193,
+                        "discipline": "GroundFighting",
+                        "categoryName": "Senioren I; weiblich, leicht",
+                        "cardinality": 2,
+                        "competitors": [
+                            698,
+                            697
+                        ],
+                        "type": "final",
+                        "numberOfGames": 1,
+                        "timePerGame": 5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 48,
+                        "duration": 5,
+                        "id": "pause-6d239da5-cb7a-43a1-9b30-2afd8d7af8e3",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 53,
+                        "duration": 10.5,
+                        "categoryId": 190,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Senioren I, gelb",
+                        "cardinality": 3,
+                        "competitors": [
+                            698,
+                            699,
+                            697
+                        ],
+                        "type": "final",
+                        "numberOfGames": 3,
+                        "timePerGame": 3.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 63.5,
+                        "duration": 5,
+                        "id": "pause-89cb7da7-2fc0-460d-bc83-08ad18e1ff8f",
+                        "conflict": false
+                    },
+                    {
+                        "begin": 68.5,
+                        "duration": 9,
+                        "categoryId": 188,
+                        "discipline": "RandomAttack",
+                        "categoryName": "Erwachsene, blau/braun",
+                        "cardinality": 4,
+                        "competitors": [
+                            670,
+                            661,
+                            673,
+                            676
+                        ],
+                        "type": "final",
+                        "numberOfGames": 2,
+                        "timePerGame": 4.5,
+                        "conflict": false
+                    },
+                    {
+                        "begin": 77.5,
+                        "duration": 5,
+                        "id": "pause-f057c96e-25a0-4b62-8289-4b97bfb70985",
+                        "conflict": false
+                    }
+                ]
+            }
+        ]
+    }
+]

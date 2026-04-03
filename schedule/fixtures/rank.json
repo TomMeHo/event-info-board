@@ -1,0 +1,314 @@
+[
+  {
+    "model": "schedule.rank",
+    "pk": "ICHIMON",
+    "fields": {
+      "name": "1. Mon (Ichimon)",
+      "color": "weiß-blau",
+      "rankClass": "Mon-Grad",
+      "mon": 1,
+      "kyu": null,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "NIMON",
+    "fields": {
+      "name": "2. Mon (Nimon)",
+      "color": "blau",
+      "rankClass": "Mon-Grad",
+      "mon": 2,
+      "kyu": null,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "SANMON",
+    "fields": {
+      "name": "3. Mon (Sanmon)",
+      "color": "weiß-grün",
+      "rankClass": "Mon-Grad",
+      "mon": 3,
+      "kyu": null,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "YONMON",
+    "fields": {
+      "name": "4. Mon (Yonmon)",
+      "color": "grün",
+      "rankClass": "Mon-Grad",
+      "mon": 4,
+      "kyu": null,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "GOMON",
+    "fields": {
+      "name": "5. Mon (Gomon)",
+      "color": "weiß-orange",
+      "rankClass": "Mon-Grad",
+      "mon": 5,
+      "kyu": null,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "ROKUMON",
+    "fields": {
+      "name": "6. Mon (Rokumon)",
+      "color": "orange",
+      "rankClass": "Mon-Grad",
+      "mon": 6,
+      "kyu": null,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "NANAMON",
+    "fields": {
+      "name": "7. Mon (Nanamon)",
+      "color": "weiß-gelb",
+      "rankClass": "Mon-Grad",
+      "mon": 7,
+      "kyu": null,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "HACHIMON",
+    "fields": {
+      "name": "8. Mon (Hachimon)",
+      "color": "gelb",
+      "rankClass": "Mon-Grad",
+      "mon": 8,
+      "kyu": null,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "HAKKYU",
+    "fields": {
+      "name": "8. Kyu (Hachikyu)",
+      "color": "gelb",
+      "rankClass": "Kyu-Grad",
+      "mon": null,
+      "kyu": 8,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "NANAKYU",
+    "fields": {
+      "name": "7. Kyu (Nanakyu)",
+      "color": "orange",
+      "rankClass": "Kyu-Grad",
+      "mon": null,
+      "kyu": 7,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "ROKKYU",
+    "fields": {
+      "name": "6. Kyu (Rokkyu)",
+      "color": "grün",
+      "rankClass": "Kyu-Grad",
+      "mon": null,
+      "kyu": 6,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "GOKYU",
+    "fields": {
+      "name": "5. Kyu (Gokyu)",
+      "color": "blau",
+      "rankClass": "Kyu-Grad",
+      "mon": null,
+      "kyu": 5,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "YONKYU",
+    "fields": {
+      "name": "4. Kyu (Yonkyu)",
+      "color": "blau",
+      "rankClass": "Kyu-Grad",
+      "mon": null,
+      "kyu": 4,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "SANKYU",
+    "fields": {
+      "name": "3. Kyu (Sankyu)",
+      "color": "braun",
+      "rankClass": "Kyu-Grad",
+      "mon": null,
+      "kyu": 3,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "NIKYU",
+    "fields": {
+      "name": "2. Kyu (Nikyu)",
+      "color": "braun mit 1 Streifen",
+      "rankClass": "Kyu-Grad",
+      "mon": null,
+      "kyu": 2,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "IKKYU",
+    "fields": {
+      "name": "1. Kyu (Ikkyu)",
+      "color": "braun mit 2 Streifen",
+      "rankClass": "Kyu-Grad",
+      "mon": null,
+      "kyu": 1,
+      "dan": null
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "SHODAN",
+    "fields": {
+      "name": "1. Dan (Shodan)",
+      "color": "schwarz",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 1
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "NIDAN",
+    "fields": {
+      "name": "2. Dan (Nidan)",
+      "color": "schwarz",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 2
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "SANDAN",
+    "fields": {
+      "name": "3. Dan (Sandan)",
+      "color": "schwarz",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 3
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "YONDAN",
+    "fields": {
+      "name": "4. Dan (Yondan)",
+      "color": "schwarz",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 4
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "GODAN",
+    "fields": {
+      "name": "5. Dan (Godan)",
+      "color": "schwarz",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 5
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "ROKUDAN",
+    "fields": {
+      "name": "6. Dan (Rokudan)",
+      "color": "rot-weiß",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 6
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "SHICHIDAN",
+    "fields": {
+      "name": "7. Dan (Shichidan)",
+      "color": "rot-weiß",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 7
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "HACHIDAN",
+    "fields": {
+      "name": "8. Dan (Hachidan)",
+      "color": "rot-weiß",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 8
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "KUDAN",
+    "fields": {
+      "name": "9. Dan (Kudan)",
+      "color": "rot",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 9
+    }
+  },
+  {
+    "model": "schedule.rank",
+    "pk": "JUDAN",
+    "fields": {
+      "name": "10. Dan (Judan)",
+      "color": "rot",
+      "rankClass": "Dan-Grad",
+      "mon": null,
+      "kyu": null,
+      "dan": 10
+    }
+  }
+]
