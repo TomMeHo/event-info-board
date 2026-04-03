@@ -18,9 +18,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView
+from schedule import views as schedule_views
 
 urlpatterns = [
-    path("", RedirectView.as_view(url="schedule/")),
+    path("", RedirectView.as_view(url="board/")),
     path("admin/", admin.site.urls),
-    path("schedule/", include("schedule.urls") )
+    path("board/", include("schedule.urls")),
+    path("schedule/", schedule_views.schedule_compact, name="schedule_compact"),
+    path("schedule/<int:slot_id>/", schedule_views.slot_detail, name="slot_detail"),
+    path("registrations/", schedule_views.registrations_list, name="registrations_list"),
+    path("registrations/<int:registration_id>/", schedule_views.registration_detail, name="registration_detail"),
 ]
