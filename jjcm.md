@@ -537,18 +537,26 @@ The application uses these environment variables:
 
 ### Belt Ranks (rank_id)
 
-| Value | Meaning |
-|-------|---------|
-| HAKKYU | 8th Kyu (white/yellow) |
-| NANAKYU | 7th Kyu |
-| ROKKYU | 6th Kyu (green) |
-| GOKYU | 5th Kyu |
-| YONKYU | 4th Kyu (blue) |
-| IKKYU | 1st Kyu (brown) |
-| SHODAN | 1st Dan (black) |
-| NIDAN | 2nd Dan |
-| SANDAN | 3rd Dan |
-| YONDAN | 4th Dan |
+| Value | Meaning | Color |
+|-------|---------|-------|
+| HAKKYU | 8th Kyu | gelb (yellow) |
+| NANAKYU | 7th Kyu | orange |
+| ROKKYU | 6th Kyu | grün (green) |
+| GOKYU | 5th Kyu | blau (blue) |
+| YONKYU | 4th Kyu | braun (brown) |
+| SANKYU | 3rd Kyu | braun + 1 Streifen |
+| NIKYU | 2nd Kyu | braun + 2 Streifen |
+| IKKYU | 1st Kyu | braun + 3 Streifen |
+| SHODAN | 1st Dan | schwarz (black) |
+| NIDAN | 2nd Dan | schwarz |
+| SANDAN | 3rd Dan | schwarz |
+| YONDAN | 4th Dan | schwarz |
+| GODAN | 5th Dan | schwarz |
+| ROKUDAN | 6th Dan | rot-weiß (red-white) |
+| SHICHIDAN | 7th Dan | rot-weiß |
+| HACHIDAN | 8th Dan | rot-weiß |
+| KUDAN | 9th Dan | rot (red) |
+| JUDAN | 10th Dan | rot |
 
 ### Disciplines
 

@@ -148,7 +148,7 @@
     "pk": "YONKYU",
     "fields": {
       "name": "4. Kyu (Yonkyu)",
-      "color": "blau",
+      "color": "braun",
       "rankClass": "Kyu-Grad",
       "mon": null,
       "kyu": 4,
@@ -160,7 +160,7 @@
     "pk": "SANKYU",
     "fields": {
       "name": "3. Kyu (Sankyu)",
-      "color": "braun",
+      "color": "braun mit 1 Streifen",
       "rankClass": "Kyu-Grad",
       "mon": null,
       "kyu": 3,
@@ -172,7 +172,7 @@
     "pk": "NIKYU",
     "fields": {
       "name": "2. Kyu (Nikyu)",
-      "color": "braun mit 1 Streifen",
+      "color": "braun mit 2 Streifen",
       "rankClass": "Kyu-Grad",
       "mon": null,
       "kyu": 2,
@@ -184,7 +184,7 @@
     "pk": "IKKYU",
     "fields": {
       "name": "1. Kyu (Ikkyu)",
-      "color": "braun mit 2 Streifen",
+      "color": "braun mit 3 Streifen",
       "rankClass": "Kyu-Grad",
       "mon": null,
       "kyu": 1,
