@@ -5,6 +5,8 @@
 {% block content %}
 {% load static %}
 
+{% include 'schedule/includes/belt_styles.html' %}
+
 <div class="container">
     <div class="row align-items-center">
         <div class="col col-md-2">
@@ -13,7 +15,8 @@
         <div class="col col-md-8 text-center align-middle">
             <h1 class="title 1">{% if event %}{{ event.title }}{% else %}Kein Wettkampf ausgewählt{% endif %}</h1>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 text-end">
+            <img src="{% static 'djjb.png' %}" width=100>
         </div>
     </div>
 </div>
@@ -51,7 +54,7 @@
                     <th>Name</th>
                     <th>Vorname</th>
                     <th>Verein</th>
-                    <th>Graduierung</th>
+                    <th class="text-end">Graduierung</th>
                 </tr>
             </thead>
             <tbody>
@@ -60,7 +63,7 @@
                     <td>{{ reg.competitor.name }}</td>
                     <td>{{ reg.competitor.givenName }}</td>
                     <td>{% if reg.dojo %}{{ reg.dojo.name }}{% else %}-{% endif %}</td>
-                    <td>{{ reg.jjcmRankId|default:"-" }}</td>
+                    <td class="text-end">{% if reg.rank %}{{ reg.rank.name }} {{ reg.rank.get_belt_html|safe }}{% else %}{{ reg.jjcmRankId|default:"-" }}{% endif %}</td>
                 </tr>
                 {% empty %}
                 <tr>

@@ -94,8 +94,8 @@ Ranks are stored in `schedule/fixtures/rank.json` and loaded via `python manage.
 - 5. Mon (weiß-orange), 6. Mon (orange), 7. Mon (weiß-gelb), 8. Mon (gelb)
 
 **Kyu grades** (8-1):
-- 8. Kyu (gelb), 7. Kyu (orange), 6. Kyu (grün), 5. Kyu (blau), 4. Kyu (blau)
-- 3. Kyu (braun), 2. Kyu (braun mit 1 Streifen), 1. Kyu (braun mit 2 Streifen)
+- 8. Kyu (gelb), 7. Kyu (orange), 6. Kyu (grün), 5. Kyu (blau), 4. Kyu (braun)
+- 3. Kyu (braun mit 1 Streifen), 2. Kyu (braun mit 2 Streifen), 1. Kyu (braun mit 3 Streifen)
 
 **Dan grades** (1-10):
 - 1-5. Dan (schwarz with yellow stripes), 6-8. Dan (rot-weiß), 9-10. Dan (rot)
