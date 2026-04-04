@@ -1,5 +1,5 @@
 # Stage 1: Base build stage
-FROM python:3.10-slim AS builder
+FROM python:3.12-slim AS builder
  
 # Create the workdir inside the container
 RUN mkdir /app
