@@ -30,7 +30,7 @@ RUN useradd -m -r appuser && \
     chown -R appuser /app
 
 # Copy the Python dependencies from the builder stage
-COPY --from=builder /usr/local/lib/python3.10/site-packages/ /usr/local/lib/python3.10/site-packages/
+COPY --from=builder /usr/local/lib/python3.12/site-packages/ /usr/local/lib/python3.12/site-packages/
 COPY --from=builder /usr/local/bin/ /usr/local/bin/
 
 WORKDIR /app
