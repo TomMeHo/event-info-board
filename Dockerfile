@@ -23,7 +23,7 @@ RUN pipenv clean
 RUN pipenv install --system --deploy
 
 # Stage 2: Production stage
-FROM python:3.10-slim
+FROM python:3.12-slim
 
 RUN useradd -m -r appuser && \
     mkdir /app && \
