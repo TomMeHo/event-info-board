@@ -8,12 +8,14 @@ Event Info Board is a Django application that displays timetables and results fo
 
 ## URLs
 
-- `/board/` - Event board showing the competition schedule (for info screens)
-- `/schedule/` - Compact schedule view
-- `/schedule/<id>/` - Slot detail with competitors
-- `/registrations/` - List of registered competitors (filterable by dojo, searchable by name)
-- `/registrations/<id>/` - Competitor detail with schedule slots
-- `/admin/` - Django admin interface
+All endpoints are prefixed with `/app/`:
+
+- `/app/board/` - Event board showing the competition schedule (for info screens)
+- `/app/schedule/` - Compact schedule view
+- `/app/schedule/<id>/` - Slot detail with competitors
+- `/app/registrations/` - List of registered competitors (filterable by dojo, searchable by name)
+- `/app/registrations/<id>/` - Competitor detail with schedule slots
+- `/app/admin/` - Django admin interface
 
 ## Development Commands
 
@@ -29,9 +31,12 @@ python manage.py migrate            # Apply migrations
 ### Docker Development
 ```bash
 docker compose up                                              # Start services
-docker compose run django-web python manage.py migrate         # Run migrations
-docker compose run django-web python manage.py createsuperuser # Create admin user
-docker compose run django-web python manage.py collectstatic   # Collect static files
+docker compose down && docker compose build --no-cache && docker compose up -d  # Rebuild and restart
+docker compose exec django-web python manage.py migrate        # Run migrations
+docker compose exec django-web python manage.py createsuperuser # Create admin user
+docker compose exec django-web python manage.py collectstatic  # Collect static files
+docker compose exec django-web python manage.py loaddata rank  # Load rank fixtures
+docker compose logs -f django-web                              # View logs
 ```
 
 ### Data Sync Commands
@@ -116,3 +121,28 @@ Required in `.env`:
 - `DATABASE_ENGINE`, `DATABASE_NAME`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`, `DATABASE_HOST`, `DATABASE_PORT`
 - `JJCM_BASE` (optional, defaults to https://jjcm.foehst.net)
 - `JJCM_USERNAME`, `JJCM_PASSWORD` (for authenticated JJCM endpoints)
+
+### OIDC Authentication (PocketID)
+Optional OIDC/PocketID authentication. Set `DJANGO_OIDC_ENABLED=True` to enable.
+
+Required environment variables when enabled:
+```
+DJANGO_OIDC_ENABLED=True
+DJANGO_OIDC_CLIENT_ID=your-client-id
+DJANGO_OIDC_CLIENT_SECRET=your-client-secret
+DJANGO_OIDC_AUTHORIZATION_ENDPOINT=https://your-pocketid.example.com/authorize
+DJANGO_OIDC_TOKEN_ENDPOINT=https://your-pocketid.example.com/token
+DJANGO_OIDC_USER_ENDPOINT=https://your-pocketid.example.com/userinfo
+DJANGO_OIDC_JWKS_ENDPOINT=https://your-pocketid.example.com/.well-known/jwks.json
+DJANGO_OIDC_SIGN_ALGO=RS256
+```
+
+OIDC endpoints when enabled:
+- `/app/oidc/authenticate/` - Start OIDC login
+- `/app/oidc/callback/` - OIDC callback (redirect URI to configure in PocketID)
+- `/app/oidc/logout/` - OIDC logout
+
+Admin login integration:
+- When OIDC is enabled, the Django admin login page (`/app/admin/`) shows a "Login with PocketID" button
+- Users can still use local Django credentials or OIDC
+- OIDC users are automatically created in Django on first login
