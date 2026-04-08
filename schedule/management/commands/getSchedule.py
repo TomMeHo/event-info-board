@@ -14,9 +14,11 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser: CommandParser) -> None:
         parser.add_argument("competition_id", type=int, nargs='?', help="JJCM ID of the competition to retrieve the schedule for. If not provided, retrieves for all active competitions.")
+        parser.add_argument("--force", action="store_true", help="Force reload even if the schedule hasn't changed.")
 
     def handle(self, *args, **options):
         competition_id = options.get("competition_id")
+        force = options.get("force", False)
         competitions = [competition_id] if competition_id else Competition.objects.filter(active=True).filter(~Q(jjcmCompetitionId=None)).values_list('jjcmCompetitionId', flat=True)
 
         for comp_id in competitions:
@@ -28,7 +30,7 @@ class Command(BaseCommand):
             competition = Competition.objects.get(jjcmCompetitionId=comp_id)
             schedule_hash = hashlib.sha256(str(schedule).encode()).hexdigest()
 
-            if competition.jjcmHash != schedule_hash:
+            if force or competition.jjcmHash != schedule_hash:
                 print(f"Schedule for competition {competition} has changed, updating...")
 
                 slot_hashes = self._enrich_and_save_slots(schedule, competition)

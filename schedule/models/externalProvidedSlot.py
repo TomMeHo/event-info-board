@@ -46,9 +46,16 @@ class ExternalProvidedSlot(Slot):
             f"{start}:{end}:{discipline}:{category_name}:{slot_type}:{tatami}".encode()
         ).hexdigest()
 
+        # Link registrations via their jjcmRegistrationId
+        registration_ids = slot.get("competitors", [])
+
         if cls.objects.filter(hash=slot_hash).exists():
-            print(f"Slot with hash {slot_hash} already exists, skipping.")
-            return cls.objects.get(hash=slot_hash)
+            print(f"Slot with hash {slot_hash} already exists, updating registrations.")
+            obj = cls.objects.get(hash=slot_hash)
+            if registration_ids:
+                registrations = Registration.objects.filter(jjcmRegistrationId__in=registration_ids)
+                obj.registrations.set(registrations)
+            return obj
 
         obj = ExternalProvidedSlot(
             start=start,
@@ -63,8 +70,6 @@ class ExternalProvidedSlot(Slot):
         )
         obj.save()
 
-        # Link registrations via their jjcmRegistrationId
-        registration_ids = slot.get("competitors", [])
         if registration_ids:
             registrations = Registration.objects.filter(jjcmRegistrationId__in=registration_ids)
             obj.registrations.set(registrations)
