@@ -1,0 +1,15 @@
+{% extends "admin/login.html" %}
+{% load i18n %}
+
+{% block content %}
+{{ block.super }}
+
+{% if oidc_enabled %}
+<div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #ccc;">
+    <p>{% trans "Or login with:" %}</p>
+    <a href="{% url 'oidc_authentication_init' %}" class="button" style="background: #447e9b; padding: 10px 20px;">
+        Login with PocketID
+    </a>
+</div>
+{% endif %}
+{% endblock %}

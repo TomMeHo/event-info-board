@@ -10,16 +10,20 @@ class Command(BaseCommand):
     existingDojoIds = []
 
     def add_arguments(self, parser: CommandParser) -> None:
-        parser.add_argument("competition_id", type=int, nargs='?', help="JJCM ID of the competition to retrieve the competitors for.")
+        parser.add_argument("competition_id", type=int, nargs='?', help="JJCM ID of the competition to retrieve the competitors for. If not provided, uses the active competition.")
 
     def handle(self, *args, **options):
         competition_id = options.get('competition_id')
-        if not competition_id:
-            raise CommandError('Please provide a competition_id')
 
-        competition = Competition.objects.filter(jjcmCompetitionId=competition_id).first()
-        if not competition:
-            raise CommandError(f'No Competition found with jjcmCompetitionId={competition_id}')
+        if competition_id:
+            competition = Competition.objects.filter(jjcmCompetitionId=competition_id).first()
+            if not competition:
+                raise CommandError(f'No Competition found with jjcmCompetitionId={competition_id}')
+        else:
+            competition = Competition.objects.filter(active=True).first()
+            if not competition:
+                raise CommandError('No active competition found. Please provide a competition_id or set an active competition.')
+            competition_id = competition.jjcmCompetitionId
 
         data = self.getCompetitors(competition_id)
         self.stdout.write(self.style.SUCCESS(f"Retrieved registrations for competition {competition_id}: {len(data)} items"))

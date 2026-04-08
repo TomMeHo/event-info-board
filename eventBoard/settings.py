@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "mozilla_django_oidc",
 ]
 
 MIDDLEWARE = [
@@ -62,13 +63,14 @@ ROOT_URLCONF = "eventBoard.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "eventBoard.context_processors.oidc_enabled",
             ],
         },
     },
@@ -126,7 +128,7 @@ USE_I18N = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/app/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Coping for CSRF-Failures
@@ -141,3 +143,23 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 #Disable time zone support, making things a lot easier in our case.
 USE_TZ = False
+
+# OIDC Authentication (PocketID)
+OIDC_ENABLED = os.environ.get("DJANGO_OIDC_ENABLED", "False") == "True"
+
+if OIDC_ENABLED:
+    AUTHENTICATION_BACKENDS = [
+        'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
+        'django.contrib.auth.backends.ModelBackend',
+    ]
+
+    OIDC_RP_CLIENT_ID = os.environ.get('DJANGO_OIDC_CLIENT_ID')
+    OIDC_RP_CLIENT_SECRET = os.environ.get('DJANGO_OIDC_CLIENT_SECRET')
+    OIDC_OP_AUTHORIZATION_ENDPOINT = os.environ.get('DJANGO_OIDC_AUTHORIZATION_ENDPOINT')
+    OIDC_OP_TOKEN_ENDPOINT = os.environ.get('DJANGO_OIDC_TOKEN_ENDPOINT')
+    OIDC_OP_USER_ENDPOINT = os.environ.get('DJANGO_OIDC_USER_ENDPOINT')
+    OIDC_OP_JWKS_ENDPOINT = os.environ.get('DJANGO_OIDC_JWKS_ENDPOINT')
+    OIDC_RP_SIGN_ALGO = os.environ.get('DJANGO_OIDC_SIGN_ALGO', 'RS256')
+
+    LOGIN_REDIRECT_URL = '/app/admin/'
+    LOGOUT_REDIRECT_URL = '/app/'

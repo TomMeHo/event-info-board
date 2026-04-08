@@ -15,6 +15,7 @@ whitenoise = "*"
 django = ">=6.0.3"
 urllib3 = ">=2.6.3"
 wheel = ">=0.46.2"
+mozilla-django-oidc = "*"
 
 [dev-packages]
 coverage = "*"

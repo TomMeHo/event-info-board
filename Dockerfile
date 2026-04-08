@@ -40,7 +40,10 @@ COPY --chown=appuser:appuser . .
  
 # Set environment variables to optimize Python
 ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1 
+ENV PYTHONUNBUFFERED=1
+
+# Make entrypoint executable
+RUN chmod +x /app/entrypoint.sh
 
 # Switch to non-root user
 USER appuser
@@ -50,8 +53,5 @@ USER appuser
 
 EXPOSE 8000
 
-# Run Django’s development server
-#CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-
-# Start the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "eventBoard.wsgi:application"]
+# Run entrypoint script
+CMD ["/app/entrypoint.sh"]
