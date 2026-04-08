@@ -48,9 +48,9 @@ class Command(BaseCommand):
         self.stdout.write(self.style.HTTP_INFO("\n=== Syncing Schedule ==="))
         try:
             if competition_id:
-                call_command('getSchedule', competition_id, stdout=self.stdout)
+                call_command('getSchedule', competition_id, *force_args, stdout=self.stdout)
             else:
-                call_command('getSchedule', stdout=self.stdout)
+                call_command('getSchedule', *force_args, stdout=self.stdout)
         except Exception as e:
             self.stderr.write(f"Error syncing schedule: {e}")
 
