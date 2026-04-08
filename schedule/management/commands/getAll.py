@@ -34,17 +34,7 @@ class Command(BaseCommand):
         except Exception as e:
             self.stderr.write(f"Error syncing competitions: {e}")
 
-        # 2. Sync schedule
-        self.stdout.write(self.style.HTTP_INFO("\n=== Syncing Schedule ==="))
-        try:
-            if competition_id:
-                call_command('getSchedule', competition_id, stdout=self.stdout)
-            else:
-                call_command('getSchedule', stdout=self.stdout)
-        except Exception as e:
-            self.stderr.write(f"Error syncing schedule: {e}")
-
-        # 3. Sync competitors/registrations
+        # 2. Sync competitors/registrations (before schedule, so registrations can be linked to slots)
         self.stdout.write(self.style.HTTP_INFO("\n=== Syncing Competitors ==="))
         try:
             if competition_id:
@@ -53,6 +43,16 @@ class Command(BaseCommand):
                 call_command('getCompetitors', stdout=self.stdout)
         except Exception as e:
             self.stderr.write(f"Error syncing competitors: {e}")
+
+        # 3. Sync schedule (after competitors, so slots can link to registrations)
+        self.stdout.write(self.style.HTTP_INFO("\n=== Syncing Schedule ==="))
+        try:
+            if competition_id:
+                call_command('getSchedule', competition_id, stdout=self.stdout)
+            else:
+                call_command('getSchedule', stdout=self.stdout)
+        except Exception as e:
+            self.stderr.write(f"Error syncing schedule: {e}")
 
         # 4. Sync entries (requires auth)
         self.stdout.write(self.style.HTTP_INFO("\n=== Syncing Entries ==="))
