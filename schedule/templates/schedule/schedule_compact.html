@@ -39,14 +39,20 @@
             </thead>
             <tbody>
                 {% for slot in day.slots %}
+                {% if slot.is_external %}
                 <tr style="cursor: pointer;" onclick="window.location='{% url 'slot_detail' slot.id %}'">
+                {% else %}
+                <tr class="table-info">
+                {% endif %}
                     <td>{{ slot.start|date:"H:i" }}</td>
                     <td>{{ slot.discipline }}{% if slot.type == "final" %} <span class="badge bg-warning text-dark">Finale</span>{% endif %}</td>
                     <td>{{ slot.category_name }}</td>
                     <td>
+                        {% if slot.tatami %}
                         <span class="badge {% if slot.tatami == 1 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">1</span>
                         <span class="badge {% if slot.tatami == 2 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">2</span>
                         <span class="badge {% if slot.tatami == 3 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">3</span>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

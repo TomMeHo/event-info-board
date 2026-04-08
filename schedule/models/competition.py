@@ -11,7 +11,7 @@ class Competition(models.Model):
     firstDay = models.DateField()
     lastDay = models.DateField()
 
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(default=False)
 
     jjcmHash = models.CharField(max_length=64, blank=True, null=True)  # sha256 hash of the schedule from JJCM
     jjcmEntriesHash = models.CharField(max_length=64, blank=True, null=True)  # sha256 hash of entries

@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.urls import path, reverse
 from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
 from .models import (
     Competition, Slot, ExternalProvidedSlot, Competitor, Registration, Rank, Dojo, Category,
@@ -19,7 +20,7 @@ class CompetitionAdmin(admin.ModelAdmin):
         if obj.pk:
             url = reverse('admin:competition-set-active', args=[obj.pk])
             if obj.active:
-                return format_html('<span style="color: green; font-weight: bold;">This is the active competition</span>')
+                return mark_safe('<span style="color: green; font-weight: bold;">This is the active competition</span>')
             return format_html(
                 '<a class="button" href="{}">Set active competition</a>',
                 url

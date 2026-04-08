@@ -169,16 +169,57 @@ def schedule_compact(request):
         context = {'event': None, 'days': []}
         return HttpResponse(loader.get_template("schedule/schedule_compact.html").render(context, request))
 
-    # Get all slots for the competition, grouped by day
-    slots = ExternalProvidedSlot.objects.filter(competition=competition).order_by('start', 'tatami')
+    # Current time in Europe/Berlin (CET+1)
+    now = datetime.now()
+
+    # Get ExternalProvidedSlots - filter out past events
+    external_slots = ExternalProvidedSlot.objects.filter(
+        competition=competition,
+        start__gte=now
+    ).order_by('start', 'tatami')
+
+    # Get manually created Slots (base Slot, not ExternalProvidedSlot) - filter out past events
+    manual_slots = Slot.objects.filter(
+        competition=competition,
+        start__gte=now
+    ).non_polymorphic().filter(
+        polymorphic_ctype=ContentType.objects.get_for_model(Slot)
+    ).order_by('start')
 
     # Group by date
     days = {}
-    for slot in slots:
+
+    for slot in external_slots:
         day_key = slot.start.date()
         if day_key not in days:
             days[day_key] = []
-        days[day_key].append(slot)
+        days[day_key].append({
+            'id': slot.id,
+            'start': slot.start,
+            'discipline': slot.discipline,
+            'category_name': slot.category_name,
+            'tatami': slot.tatami,
+            'type': slot.type,
+            'is_external': True,
+        })
+
+    for slot in manual_slots:
+        day_key = slot.start.date()
+        if day_key not in days:
+            days[day_key] = []
+        days[day_key].append({
+            'id': slot.id,
+            'start': slot.start,
+            'discipline': '',
+            'category_name': slot.title,
+            'tatami': None,
+            'type': '',
+            'is_external': False,
+        })
+
+    # Sort slots within each day by start time
+    for day_key in days:
+        days[day_key].sort(key=lambda s: s['start'])
 
     # Convert to list of dicts sorted by date
     days_list = [{'date': date, 'slots': slots} for date, slots in sorted(days.items())]
