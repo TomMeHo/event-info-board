@@ -33,7 +33,7 @@
                 <tr>
                     <th style="width: 100px;">Zeit</th>
                     <th>Disziplin</th>
-                    <th>Kategorie</th>
+                    <th class="d-none d-md-table-cell">Kategorie</th>
                     <th style="width: 80px;">Tatami</th>
                 </tr>
             </thead>
@@ -45,8 +45,11 @@
                 <tr class="table-info">
                 {% endif %}
                     <td>{{ slot.start|date:"H:i" }}</td>
-                    <td>{{ slot.discipline }}{% if slot.type == "final" %} <span class="badge bg-warning text-dark">Finale</span>{% endif %}</td>
-                    <td>{{ slot.category_name }}</td>
+                    <td>
+                        {{ slot.discipline }}{% if slot.type == "final" %} <span class="badge bg-warning text-dark">Finale</span>{% endif %}
+                        <span class="d-md-none"><br><i>{{ slot.category_name }}</i></span>
+                    </td>
+                    <td class="d-none d-md-table-cell">{{ slot.category_name }}</td>
                     <td>
                         {% if slot.tatami %}
                         <span class="badge {% if slot.tatami == 1 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">1</span>
