@@ -13,7 +13,7 @@
         <div class="col col-md-8 text-center align-middle">
             <h1 class="title 1">{% if event %}{{ event.title }}{% else %}Kein Wettkampf ausgewählt{% endif %}</h1>
         </div>
-        <div class="col-md-2 text-end">
+        <div class="col-md-2 text-end d-none d-md-block">
             <img src="{% static 'djjb.png' %}" width=100>
         </div>
     </div>
@@ -32,7 +32,7 @@
             <thead>
                 <tr>
                     <th style="width: 100px;">Zeit</th>
-                    <th>Disziplin</th>
+                    <th>Disziplin <div class="d-md-none"><i>Kategorie</i></div></th>
                     <th class="d-none d-md-table-cell">Kategorie</th>
                     <th style="width: 80px;">Tatami</th>
                 </tr>
@@ -41,16 +41,13 @@
                 {% for slot in day.slots %}
                 {% if slot.is_external %}
                 <tr style="cursor: pointer;" onclick="window.location='{% url 'slot_detail' slot.id %}'">
-                {% else %}
-                <tr class="table-info">
-                {% endif %}
                     <td>{{ slot.start|date:"H:i" }}</td>
                     <td>
-                        {{ slot.discipline }}{% if slot.type == "final" %} <span class="badge bg-warning text-dark">Finale</span>{% endif %}
+                        {{ slot.discipline }}{% if slot.type == "final" %} <span class="badge bg-warning text-dark float-end">Finale</span>{% endif %}
                         <span class="d-md-none"><br><i>{{ slot.category_name }}</i></span>
                     </td>
                     <td class="d-none d-md-table-cell">{{ slot.category_name }}</td>
-                    <td>
+                    <td style="white-space: nowrap;">
                         {% if slot.tatami %}
                         <span class="badge {% if slot.tatami == 1 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">1</span>
                         <span class="badge {% if slot.tatami == 2 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">2</span>
@@ -58,6 +55,13 @@
                         {% endif %}
                     </td>
                 </tr>
+                {% else %}
+                <tr>
+                    <td>{{ slot.start|date:"H:i" }}</td>
+                    <td colspan="2">{{ slot.category_name }}</td>
+                    <td></td>
+                </tr>
+                {% endif %}
                 {% endfor %}
             </tbody>
         </table>

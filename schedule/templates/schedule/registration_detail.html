@@ -15,7 +15,7 @@
         <div class="col col-md-8 text-center align-middle">
             <h1 class="title 1">{{ event.title }}</h1>
         </div>
-        <div class="col-md-2 text-end">
+        <div class="col-md-2 text-end d-none d-md-block">
             <img src="{% static 'djjb.png' %}" width=100>
         </div>
     </div>
@@ -61,21 +61,26 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Tag</th>
+                    <th class="d-none d-md-table-cell">Tag</th>
                     <th>Zeit</th>
                     <th>Disziplin</th>
-                    <th>Kategorie</th>
+                    <th class="d-none d-md-table-cell">Kategorie</th>
                     <th>Tatami</th>
                 </tr>
             </thead>
             <tbody>
                 {% for slot in slots %}
+                {% ifchanged slot.start|date:"Y-m-d" %}
+                <tr class="d-md-none table-secondary">
+                    <td colspan="3"><strong>{{ slot.start|date:"l" }}</strong></td>
+                </tr>
+                {% endifchanged %}
                 <tr>
-                    <td>{% ifchanged slot.start|date:"Y-m-d" %}{{ slot.start|date:"l" }}{% endifchanged %}</td>
+                    <td class="d-none d-md-table-cell">{% ifchanged slot.start|date:"Y-m-d" %}{{ slot.start|date:"l" }}{% endifchanged %}</td>
                     <td>{{ slot.start|date:"H:i" }} - {{ slot.end|date:"H:i" }}</td>
-                    <td>{{ slot.discipline }}{% if slot.type == "final" %} <span class="badge bg-warning text-dark float-end">Finale</span>{% endif %}</td>
-                    <td>{{ slot.category_name }}</td>
-                    <td>
+                    <td>{{ slot.discipline }}{% if slot.type == "final" %} <span class="badge bg-warning text-dark float-end">Finale</span>{% endif %}<span class="d-md-none"><br><i>{{ slot.category_name }}</i></span></td>
+                    <td class="d-none d-md-table-cell">{{ slot.category_name }}</td>
+                    <td style="white-space: nowrap;">
                         <span class="badge {% if slot.tatami == 1 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">1</span>
                         <span class="badge {% if slot.tatami == 2 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">2</span>
                         <span class="badge {% if slot.tatami == 3 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">3</span>

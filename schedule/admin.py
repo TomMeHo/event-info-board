@@ -193,6 +193,16 @@ class SlotParentAdmin(PolymorphicParentModelAdmin):
     def slot_type(self, obj):
         return obj.get_real_instance_class().__name__
 
+    def add_view(self, request, form_url='', extra_context=None):
+        # Skip type selection, go directly to adding base Slot
+        from django.contrib.contenttypes.models import ContentType
+        ct = ContentType.objects.get_for_model(Slot, for_concrete_model=False)
+        if 'ct_id' not in request.GET:
+            new_get = request.GET.copy()
+            new_get['ct_id'] = str(ct.pk)
+            request.GET = new_get
+        return super().add_view(request, form_url, extra_context)
+
 
 @admin.register(Competitor)
 class CompetitorAdmin(admin.ModelAdmin):
