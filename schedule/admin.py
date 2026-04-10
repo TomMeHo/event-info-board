@@ -35,6 +35,7 @@ class CompetitionAdmin(admin.ModelAdmin):
             buttons = []
             actions = [
                 ('refresh-all', 'Refresh All', '#417690'),
+                ('refresh-all-force', 'Force Refresh All', '#ba2121'),
                 ('refresh-schedule', 'Schedule', '#79aec8'),
                 ('refresh-competitors', 'Competitors', '#79aec8'),
                 ('refresh-entries', 'Entries', '#79aec8'),
@@ -61,6 +62,11 @@ class CompetitionAdmin(admin.ModelAdmin):
                 '<int:competition_id>/refresh-all/',
                 self.admin_site.admin_view(self.refresh_all_view),
                 name='competition-refresh-all',
+            ),
+            path(
+                '<int:competition_id>/refresh-all-force/',
+                self.admin_site.admin_view(self.refresh_all_force_view),
+                name='competition-refresh-all-force',
             ),
             path(
                 '<int:competition_id>/refresh-schedule/',
@@ -101,6 +107,16 @@ class CompetitionAdmin(admin.ModelAdmin):
         try:
             call_command('getAll', str(jjcm_id), stdout=out, stderr=out)
             self.message_user(request, f"Successfully refreshed all data for competition.")
+        except Exception as e:
+            self.message_user(request, f"Error refreshing data: {e}", level='error')
+        return HttpResponseRedirect(reverse('admin:schedule_competition_change', args=[competition_id]))
+
+    def refresh_all_force_view(self, request, competition_id):
+        jjcm_id = self._get_jjcm_id(competition_id)
+        out = StringIO()
+        try:
+            call_command('getAll', str(jjcm_id), '--force', stdout=out, stderr=out)
+            self.message_user(request, f"Successfully force-refreshed all data for competition.")
         except Exception as e:
             self.message_user(request, f"Error refreshing data: {e}", level='error')
         return HttpResponseRedirect(reverse('admin:schedule_competition_change', args=[competition_id]))
