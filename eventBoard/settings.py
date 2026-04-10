@@ -71,6 +71,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "eventBoard.context_processors.oidc_enabled",
+                "eventBoard.context_processors.footer_settings",
             ],
         },
     },

@@ -122,6 +122,11 @@ Required in `.env`:
 - `JJCM_BASE` (optional, defaults to https://jjcm.foehst.net)
 - `JJCM_USERNAME`, `JJCM_PASSWORD` (for authenticated JJCM endpoints)
 
+Footer configuration (optional):
+- `FOOTER_LINK_URL` (defaults to https://dm2026.tv-hochstetten.de)
+- `FOOTER_LINK_LABEL` (defaults to "Deutsche Meisterschaften 2026")
+- `FOOTER_IMPRESSUM_URL` (defaults to https://www.tv-hochstetten.de/impressum)
+
 ### OIDC Authentication (PocketID)
 Optional OIDC/PocketID authentication. Set `DJANGO_OIDC_ENABLED=True` to enable.
 

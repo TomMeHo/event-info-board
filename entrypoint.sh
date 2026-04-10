@@ -15,4 +15,4 @@ python manage.py collectstatic --noinput
 
 # Start Gunicorn
 echo "Starting Gunicorn..."
-exec gunicorn --bind 0.0.0.0:8000 --workers 3 eventBoard.wsgi:application
+exec gunicorn --bind 0.0.0.0:8000 --workers 3 --timeout 300 eventBoard.wsgi:application

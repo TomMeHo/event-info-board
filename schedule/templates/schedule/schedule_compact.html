@@ -5,21 +5,7 @@
 {% block content %}
 {% load static %}
 
-<div class="container">
-    <div class="row align-items-center">
-        <div class="col col-md-2">
-            <img src="{% static 'dm2026.png' %}" width=100>
-        </div>
-        <div class="col col-md-8 text-center align-middle">
-            <h1 class="title 1">{% if event %}{{ event.title }}{% else %}Kein Wettkampf ausgewählt{% endif %}</h1>
-        </div>
-        <div class="col-md-2 text-end d-none d-md-block">
-            <img src="{% static 'djjb.png' %}" width=100>
-        </div>
-    </div>
-</div>
-
-<br>
+{% include 'schedule/includes/page_header.html' %}
 
 <div class="container">
     <h2 class="mb-4">Zeitplan</h2>
@@ -74,6 +60,8 @@
     <div class="mt-4">
         <a href="{% url 'registrations_list' %}" class="btn btn-outline-secondary">Teilnehmerliste</a>
     </div>
+
+    {% include 'schedule/includes/page_footer.html' %}
 </div>
 
 {% endblock %}

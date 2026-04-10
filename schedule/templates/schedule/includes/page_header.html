@@ -1,0 +1,17 @@
+{% load static %}
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-auto">
+            <img src="{% static 'dm2026.png' %}" class="d-none d-md-inline" width=100>
+            <img src="{% static 'dm2026.png' %}" class="d-md-none" width=60>
+        </div>
+        <div class="col text-center align-middle">
+            <h1 class="title 1">{% if event %}{{ event.title }}{% else %}Kein Wettkampf ausgewählt{% endif %}</h1>
+        </div>
+        <div class="col-auto text-end d-none d-md-block">
+            <img src="{% static 'djjb.png' %}" width=100>
+        </div>
+    </div>
+</div>
+
+<br>
