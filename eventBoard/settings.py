@@ -146,6 +146,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 USE_TZ = False
 
 # OIDC Authentication (PocketID)
+# Access gate (shared password + QR token)
+ACCESS_PASSWORD = os.environ.get("ACCESS_PASSWORD", "")
+ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN", "")
+
 OIDC_ENABLED = os.environ.get("DJANGO_OIDC_ENABLED", "False") == "True"
 
 if OIDC_ENABLED:

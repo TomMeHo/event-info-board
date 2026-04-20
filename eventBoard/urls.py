@@ -24,6 +24,7 @@ from schedule import views as schedule_views
 urlpatterns = [
     path("", RedirectView.as_view(url="app/schedule/")),
     path("app/admin/", admin.site.urls),
+    path("app/access/", schedule_views.access_gate, name="access_gate"),
     path("app/board/", include("schedule.urls")),
     path("app/schedule/", schedule_views.schedule_compact, name="schedule_compact"),
     path("app/schedule/<int:slot_id>/", schedule_views.slot_detail, name="slot_detail"),

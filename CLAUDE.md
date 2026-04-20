@@ -127,6 +127,18 @@ Footer configuration (optional):
 - `FOOTER_LINK_LABEL` (defaults to "Deutsche Meisterschaften 2026")
 - `FOOTER_IMPRESSUM_URL` (defaults to https://www.tv-hochstetten.de/impressum)
 
+### Access Gate
+
+The `@require_access` decorator (`schedule/views.py`) protects the schedule, registrations, and slot detail views. Unauthenticated requests are redirected to `/app/access/`.
+
+Access is granted via one of two mechanisms, both stored in the Django session (`access_granted = True`):
+
+**Password:** Set `ACCESS_PASSWORD` in `.env`. Users enter it at `/app/access/`.
+
+**QR token:** Set `ACCESS_TOKEN` in `.env`. Append `?t=<token>` to any protected URL — the token is validated, the session is marked as granted, and the user is redirected to the clean URL (token stripped). This is the intended mechanism for QR codes: generate a QR code pointing to e.g. `https://your-host/app/schedule/?t=<ACCESS_TOKEN>` and scan it to gain access without typing a password.
+
+Both variables are optional. If `ACCESS_TOKEN` is empty, token-based access is disabled. If `ACCESS_PASSWORD` is empty, password-based access is disabled.
+
 ### OIDC Authentication (PocketID)
 Optional OIDC/PocketID authentication. Set `DJANGO_OIDC_ENABLED=True` to enable.
 

@@ -1,8 +1,11 @@
+from django.conf import settings
 from django.http import HttpResponse
 from django.template import loader
 from django.contrib.contenttypes.models import ContentType
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.db.models import Q
+from django.urls import reverse
+from functools import wraps
 
 import json
 from datetime import datetime
@@ -11,6 +14,49 @@ from .models import (
     Competition, Slot, ExternalProvidedSlot, Registration, Dojo,
     Entry, SingleCompetitorEntry, PairsEntry, KataEntry, TeamEntry
 )
+
+
+def require_access(view_func):
+    """Require shared-password or QR-token access for a view."""
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        if request.session.get('access_granted'):
+            return view_func(request, *args, **kwargs)
+        token = request.GET.get('t', '')
+        if token and settings.ACCESS_TOKEN and token == settings.ACCESS_TOKEN:
+            request.session['access_granted'] = True
+            # Redirect to clean URL without the token parameter
+            params = request.GET.copy()
+            params.pop('t')
+            clean_url = request.path
+            if params:
+                clean_url += '?' + params.urlencode()
+            return redirect(clean_url)
+        return redirect(reverse('access_gate') + '?next=' + request.path)
+    return wrapper
+
+
+def access_gate(request):
+    """Password / token entry page for gated content."""
+    next_url = request.GET.get('next', reverse('schedule_compact'))
+    error = None
+
+    # Token in query string on this page (fallback)
+    token = request.GET.get('t', '')
+    if token and settings.ACCESS_TOKEN and token == settings.ACCESS_TOKEN:
+        request.session['access_granted'] = True
+        return redirect(next_url)
+
+    if request.method == 'POST':
+        next_url = request.POST.get('next', next_url)
+        password = request.POST.get('password', '')
+        if settings.ACCESS_PASSWORD and password == settings.ACCESS_PASSWORD:
+            request.session['access_granted'] = True
+            return redirect(next_url)
+        error = 'Falsches Passwort. Bitte erneut versuchen.'
+
+    context = {'next': next_url, 'error': error}
+    return HttpResponse(loader.get_template('schedule/access_gate.html').render(context, request))
 
 
 def event_board(request):
@@ -58,14 +104,25 @@ def event_board(request):
         except:
             return slot.start # the django model way...
 
+    now = datetime.now()
+    filtered = []
+    for slot in combined_slots:
+        if isinstance(slot, dict):  # group node
+            slot['slots'] = [s for s in slot['slots'] if not (s.end and s.end < now)]
+            if slot['slots']:
+                filtered.append(slot)
+        else:  # item (model instance)
+            if slot.end is None or slot.end >= now:
+                filtered.append(slot)
+    combined_slots = filtered
     combined_slots.sort( key=extract_start )
-
 
     context = { 'event': competition, 'day': competition.firstDay, 'days': [{ 'slots': combined_slots }] }
 
     return HttpResponse( loader.get_template("schedule/event_board.html").render(context, request))
 
 
+@require_access
 def registrations_list(request):
     """List all registrations for the active competition with filter and search."""
     competitions = Competition.objects.filter(active=True).order_by("firstDay")
@@ -106,6 +163,7 @@ def registrations_list(request):
     return HttpResponse(loader.get_template("schedule/registrations_list.html").render(context, request))
 
 
+@require_access
 def registration_detail(request, registration_id):
     """Show detail view for a registration including schedule slots and entries."""
     registration = get_object_or_404(
@@ -160,6 +218,7 @@ def registration_detail(request, registration_id):
     return HttpResponse(loader.get_template("schedule/registration_detail.html").render(context, request))
 
 
+@require_access
 def schedule_compact(request):
     """Compact schedule view for the active competition."""
     competitions = Competition.objects.filter(active=True).order_by("firstDay")
@@ -232,6 +291,7 @@ def schedule_compact(request):
     return HttpResponse(loader.get_template("schedule/schedule_compact.html").render(context, request))
 
 
+@require_access
 def slot_detail(request, slot_id):
     """Detail view for a schedule slot including competitors."""
     slot = get_object_or_404(

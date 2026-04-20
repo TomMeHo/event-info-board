@@ -1,0 +1,36 @@
+{% extends 'bootstrap_base.html' %}
+
+{% block title %}Zugang{% endblock %}
+
+{% block content %}
+{% load static %}
+
+{% include 'schedule/includes/page_header.html' %}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Zugang</h5>
+                    {% if error %}
+                    <div class="alert alert-danger py-2">{{ error }}</div>
+                    {% endif %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Passwort</label>
+                            <input type="password" class="form-control" id="password" name="password" autofocus>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Zugang erhalten</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'schedule/includes/page_footer.html' %}
+</div>
+
+{% endblock %}
