@@ -25,6 +25,7 @@ def require_access(view_func):
         token = request.GET.get('t', '')
         if token and settings.ACCESS_TOKEN and token == settings.ACCESS_TOKEN:
             request.session['access_granted'] = True
+            request.session.set_expiry(172800)  # 48 hours
             # Redirect to clean URL without the token parameter
             params = request.GET.copy()
             params.pop('t')
@@ -45,6 +46,7 @@ def access_gate(request):
     token = request.GET.get('t', '')
     if token and settings.ACCESS_TOKEN and token == settings.ACCESS_TOKEN:
         request.session['access_granted'] = True
+        request.session.set_expiry(172800)  # 48 hours
         return redirect(next_url)
 
     if request.method == 'POST':
@@ -52,6 +54,7 @@ def access_gate(request):
         password = request.POST.get('password', '')
         if settings.ACCESS_PASSWORD and password == settings.ACCESS_PASSWORD:
             request.session['access_granted'] = True
+            request.session.set_expiry(172800)  # 48 hours
             return redirect(next_url)
         error = 'Falsches Passwort. Bitte erneut versuchen.'
 

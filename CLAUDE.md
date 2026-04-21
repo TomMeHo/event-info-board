@@ -122,6 +122,10 @@ Required in `.env`:
 - `JJCM_BASE` (optional, defaults to https://jjcm.foehst.net)
 - `JJCM_USERNAME`, `JJCM_PASSWORD` (for authenticated JJCM endpoints)
 
+Access gate (optional — if omitted, no access control is enforced):
+- `ACCESS_PASSWORD` — shared password users can type at `/app/access/`
+- `ACCESS_TOKEN` — random 32-byte hex token embedded in QR code URLs: `https://your-host/app/schedule/?t=<ACCESS_TOKEN>`. Generate with: `python -c "import secrets; print(secrets.token_hex(32))"`
+
 Footer configuration (optional):
 - `FOOTER_LINK_URL` (defaults to https://dm2026.tv-hochstetten.de)
 - `FOOTER_LINK_LABEL` (defaults to "Deutsche Meisterschaften 2026")

@@ -17,12 +17,22 @@ Including another URLconf
 
 from django.conf import settings
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, reverse
 from django.views.generic import RedirectView
+from django.shortcuts import redirect
 from schedule import views as schedule_views
+
+
+def permission_denied_handler(request, exception=None):
+    """Redirect 403s (e.g. expired CSRF token) to the access gate instead of showing an error page."""
+    return redirect(reverse('access_gate') + '?next=' + request.path)
+
+
+handler403 = permission_denied_handler
 
 urlpatterns = [
     path("", RedirectView.as_view(url="app/schedule/")),
+    path("app/", RedirectView.as_view(url="/app/schedule/")),
     path("app/admin/", admin.site.urls),
     path("app/access/", schedule_views.access_gate, name="access_gate"),
     path("app/board/", include("schedule.urls")),
