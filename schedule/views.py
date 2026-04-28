@@ -80,11 +80,20 @@ def event_board(request):
         return HttpResponse(loader.get_template("schedule/event_board.html").render(context, request))
 
     now = datetime.now()
-    today = competition.firstDay
+    today_date = now.date()
 
-    # --- Main view: non-past manual slots only ---
+    # Determine which competition day to display: first day >= today, else lastDay
+    days = competition.getWeekDaysDE()
+    active_day = competition.lastDay
+    for day_date in sorted(days.values()):
+        if day_date >= today_date:
+            active_day = day_date
+            break
+
+    # --- Main view: non-past manual slots of active day only ---
     manual_slots = (
         Slot.objects.filter(competition=competition)
+        .filter(start__date=active_day)
         .exclude(polymorphic_ctype=ContentType.objects.get_for_model(ExternalProvidedSlot))
         .filter(end__gte=now)
         .order_by("start")
@@ -97,7 +106,7 @@ def event_board(request):
     # --- Detail view: top-2 per tatami + flagged manual slots ---
     competition_slots = (
         ExternalProvidedSlot.objects.filter(competition=competition)
-        .filter(start__date=today)
+        .filter(start__date=active_day)
         .filter(end__gte=now)
         .order_by("tatami", "start")
     )
@@ -139,6 +148,7 @@ def event_board(request):
     # Add manual slots flagged for detail view
     detail_manual = (
         Slot.objects.filter(competition=competition)
+        .filter(start__date=active_day)
         .exclude(polymorphic_ctype=ContentType.objects.get_for_model(ExternalProvidedSlot))
         .filter(show_on_detail=True)
         .filter(end__gte=now)
@@ -169,7 +179,7 @@ def event_board(request):
 
     context = {
         'event': competition,
-        'day': today,
+        'day': active_day,
         'main_slots': main_slots,
         'detail_slots': detail_slots,
         'ticker_segments': ticker_segments,
