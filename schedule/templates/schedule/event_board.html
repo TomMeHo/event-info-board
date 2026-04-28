@@ -8,23 +8,96 @@
 
 {% include 'schedule/includes/page_header.html' %}
 
-<div class="container">
+<div class="container" style="padding-bottom: {% if ticker_segments %}5.5rem{% else %}0{% endif %};">
 
     <h2 class="subtitle 4">Zeitplan für {{ day|date:"l, j F" }}</h2>
 
-    <div class="vstack gap-3">
-        {% for day in days %}
-            {% for slot in day.slots %}
-                {% if slot.type == "item" %}
-                    {% include 'schedule/slot_card.html' %}
-                {% endif %}
-                {% if slot.type == "group" %}
-                    {% include 'schedule/slot_card.html' %}
-                {% endif %}
+    {# Main view: manual slots only #}
+    <div id="board-main" class="board-view">
+        <div class="vstack gap-3">
+            {% for slot in main_slots %}
+                {% include 'schedule/slot_card.html' %}
+            {% empty %}
+                <p class="text-muted">Keine Einträge.</p>
             {% endfor %}
-        {% endfor %}
+        </div>
+    </div>
+
+    {# Detail view: top-2 per tatami + flagged manual slots #}
+    <div id="board-detail" class="board-view" style="display:none">
+        <div class="vstack gap-3">
+            {% for slot in detail_slots %}
+                {% include 'schedule/slot_card.html' %}
+            {% empty %}
+                <p class="text-muted">Keine Einträge.</p>
+            {% endfor %}
+        </div>
     </div>
 
 </div>
+
+{% if ticker_segments %}
+<div class="ticker-bar">
+    <span class="ticker-content">{% spaceless %}{% for seg in ticker_segments %}<span class="{% if seg.highlighted %}ticker-highlighted{% endif %}">{{ seg.text }}</span>{% if not forloop.last %}<span class="ticker-separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>{% endif %}{% endfor %}{% endspaceless %}</span>
+</div>
+
+<style>
+.ticker-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    z-index: 1000;
+}
+.ticker-content {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 2.8rem;
+    font-weight: 500;
+    animation: ticker-scroll 15s linear infinite;
+    padding: 0.2rem 0;
+}
+.ticker-highlighted {
+    background: yellow;
+    color: #212529;
+    padding: 0.1rem 0.3rem;
+}
+@keyframes ticker-scroll {
+    from { transform: translateX(100vw); }
+    to   { transform: translateX(-100%); }
+}
+</style>
+{% endif %}
+
+<script>
+(function () {
+    var MAIN_MS = {{ board_main_seconds }} * 1000;
+    var DETAIL_MS = {{ board_detail_seconds }} * 1000;
+    var showingDetail = false;
+
+    function cycle() {
+        var main = document.getElementById('board-main');
+        var detail = document.getElementById('board-detail');
+        if (showingDetail) {
+            detail.style.display = 'none';
+            main.style.display = '';
+            showingDetail = false;
+            setTimeout(cycle, MAIN_MS);
+        } else {
+            main.style.display = 'none';
+            detail.style.display = '';
+            showingDetail = true;
+            setTimeout(cycle, DETAIL_MS);
+        }
+    }
+
+    setTimeout(cycle, MAIN_MS);
+}());
+</script>
 
 {% endblock %}

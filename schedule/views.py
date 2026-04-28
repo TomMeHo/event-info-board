@@ -8,11 +8,12 @@ from django.urls import reverse
 from functools import wraps
 
 import json
+from collections import defaultdict
 from datetime import datetime
 
 from .models import (
     Competition, Slot, ExternalProvidedSlot, Registration, Dojo,
-    Entry, SingleCompetitorEntry, PairsEntry, KataEntry, TeamEntry
+    Entry, SingleCompetitorEntry, PairsEntry, KataEntry, TeamEntry, TickerMessage
 )
 
 
@@ -66,63 +67,116 @@ def event_board(request):
     competitions = Competition.objects.filter(active=True).order_by("firstDay")
     competition = competitions[0] if (len(competitions) > 0) else None
 
-    if (competition is None):
-        context = { 'event': 'Kein Wettkampf ausgewählt.', 'day': None, 'days': [{ 'slots': [] }] }
-        return HttpResponse( loader.get_template("schedule/event_board.html").render(context, request))
+    if competition is None:
+        context = {
+            'event': 'Kein Wettkampf ausgewählt.',
+            'day': None,
+            'main_slots': [],
+            'detail_slots': [],
+            'ticker_segments': [],
+            'board_main_seconds': settings.BOARD_MAIN_SECONDS,
+            'board_detail_seconds': settings.BOARD_DETAIL_SECONDS,
+        }
+        return HttpResponse(loader.get_template("schedule/event_board.html").render(context, request))
 
-    #TODO add second day
+    now = datetime.now()
+    today = competition.firstDay
 
-    non_competition_slots = Slot.objects.filter(competition=competition).filter(start__date=competition.firstDay).exclude(polymorphic_ctype=ContentType.objects.get_for_model(ExternalProvidedSlot)).all()
-    competition_slots = ExternalProvidedSlot.objects.filter(competition=competition).filter(start__date=competition.firstDay).order_by("start").order_by("tatami").all()
-
-    last_group = ""
-    combined_slots = []
-    group_node = None
-
-    for slot in competition_slots:
-        slot.started = True if (slot.start > datetime.now()) else False
-        slot.ended = True if (slot.end < datetime.now()) else False
-
-        slot.title = slot.category_name
-        slot.round_type = slot.type
-
-        if last_group != f"{slot.discipline} {slot.tatami}":
-            last_group = f"{slot.discipline} {slot.tatami}"
-            group_node = None
-
-        if group_node is None:
-            group_node = { 'type': 'group', 'title': slot.discipline, 'start': slot.start, 'tatami': slot.tatami, 'slots': [] }
-            combined_slots.append(group_node)
-
-        slot.type = 'subitem'
-        group_node["slots"].append(slot)
-
-    for slot in non_competition_slots:
+    # --- Main view: non-past manual slots only ---
+    manual_slots = (
+        Slot.objects.filter(competition=competition)
+        .exclude(polymorphic_ctype=ContentType.objects.get_for_model(ExternalProvidedSlot))
+        .filter(end__gte=now)
+        .order_by("start")
+    )
+    main_slots = []
+    for slot in manual_slots:
         slot.type = 'item'
-        combined_slots.append(slot)
+        main_slots.append(slot)
+
+    # --- Detail view: top-2 per tatami + flagged manual slots ---
+    competition_slots = (
+        ExternalProvidedSlot.objects.filter(competition=competition)
+        .filter(start__date=today)
+        .filter(end__gte=now)
+        .order_by("tatami", "start")
+    )
+
+    # Group by tatami, pick current-or-next as slot 1, next as slot 2
+    tatami_slots = defaultdict(list)
+    for slot in competition_slots:
+        tatami_slots[slot.tatami].append(slot)
+
+    detail_slots = []
+    for tatami, slots in sorted(tatami_slots.items()):
+        # slot 1: currently active (start <= now <= end), else first upcoming
+        active = [s for s in slots if s.start <= now]
+        upcoming = [s for s in slots if s.start > now]
+        if active:
+            top2 = [active[-1]]  # most recently started
+            if upcoming:
+                top2.append(upcoming[0])
+        else:
+            top2 = upcoming[:2]
+
+        if not top2:
+            continue
+
+        for s in top2:
+            s.title = s.category_name
+            s.round_type = s.type
+            s.type = 'subitem'
+
+        group = {
+            'type': 'group',
+            'title': top2[0].discipline,
+            'start': top2[0].start,
+            'tatami': tatami,
+            'slots': top2,
+        }
+        detail_slots.append(group)
+
+    # Add manual slots flagged for detail view
+    detail_manual = (
+        Slot.objects.filter(competition=competition)
+        .exclude(polymorphic_ctype=ContentType.objects.get_for_model(ExternalProvidedSlot))
+        .filter(show_on_detail=True)
+        .filter(end__gte=now)
+        .order_by("start")
+    )
+    for slot in detail_manual:
+        slot.type = 'item'
+        detail_slots.append(slot)
 
     def extract_start(slot):
         try:
-            return slot['start'] # the json way...
-        except:
-            return slot.start # the django model way...
+            start = slot['start']
+            is_external = 1
+        except TypeError:
+            start = slot.start
+            is_external = 0
+        return (start, is_external)
 
-    now = datetime.now()
-    filtered = []
-    for slot in combined_slots:
-        if isinstance(slot, dict):  # group node
-            slot['slots'] = [s for s in slot['slots'] if not (s.end and s.end < now)]
-            if slot['slots']:
-                filtered.append(slot)
-        else:  # item (model instance)
-            if slot.end is None or slot.end >= now:
-                filtered.append(slot)
-    combined_slots = filtered
-    combined_slots.sort( key=extract_start )
+    detail_slots.sort(key=extract_start)
 
-    context = { 'event': competition, 'day': competition.firstDay, 'days': [{ 'slots': combined_slots }] }
+    # --- Ticker messages ---
+    ticker_qs = TickerMessage.objects.filter(competition=competition).filter(
+        Q(start__isnull=True) | Q(start__lte=now)
+    ).filter(
+        Q(end__isnull=True) | Q(end__gte=now)
+    ).order_by('order')
+    ticker_segments = [{'text': t.text, 'highlighted': t.highlighted} for t in ticker_qs]
 
-    return HttpResponse( loader.get_template("schedule/event_board.html").render(context, request))
+    context = {
+        'event': competition,
+        'day': today,
+        'main_slots': main_slots,
+        'detail_slots': detail_slots,
+        'ticker_segments': ticker_segments,
+        'board_main_seconds': settings.BOARD_MAIN_SECONDS,
+        'board_detail_seconds': settings.BOARD_DETAIL_SECONDS,
+    }
+    return HttpResponse(loader.get_template("schedule/event_board.html").render(context, request))
 
 
 @require_access

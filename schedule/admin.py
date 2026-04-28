@@ -8,7 +8,7 @@ from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModel
 from io import StringIO
 from .models import (
     Competition, Slot, ExternalProvidedSlot, Competitor, Registration, Rank, Dojo, Category,
-    Entry, SingleCompetitorEntry, PairsEntry, KataEntry, TeamEntry
+    Entry, SingleCompetitorEntry, PairsEntry, KataEntry, TeamEntry, TickerMessage
 )
 
 
@@ -174,6 +174,7 @@ class CompetitionAdmin(admin.ModelAdmin):
 class SlotChildAdmin(PolymorphicChildModelAdmin):
     base_model = Slot
     list_filter = ['competition__title']
+    fields = ('competition', 'title', 'start', 'end', 'show_on_detail')
 
 
 @admin.register(ExternalProvidedSlot)
@@ -188,7 +189,7 @@ class SlotParentAdmin(PolymorphicParentModelAdmin):
     base_model = Slot
     child_models = (Slot, ExternalProvidedSlot)
     list_filter = (PolymorphicChildModelFilter, 'competition__title')
-    list_display = ('title', 'competition', 'start', 'slot_type')
+    list_display = ('title', 'competition', 'start', 'slot_type', 'show_on_detail')
 
     def slot_type(self, obj):
         return obj.get_real_instance_class().__name__
@@ -285,3 +286,10 @@ class EntryParentAdmin(PolymorphicParentModelAdmin):
     def entry_type(self, obj):
         return obj.get_real_instance_class().__name__
     entry_type.short_description = 'Type'
+
+
+@admin.register(TickerMessage)
+class TickerMessageAdmin(admin.ModelAdmin):
+    list_display = ('text', 'competition', 'order', 'highlighted', 'start', 'end')
+    list_filter = ('competition', 'highlighted')
+    ordering = ('competition', 'order')

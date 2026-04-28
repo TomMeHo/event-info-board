@@ -9,6 +9,7 @@ class Slot(PolymorphicModel):
     competition = models.ForeignKey(Competition, on_delete=models.CASCADE)
 
     title = models.CharField(max_length=200, blank=True)
+    show_on_detail = models.BooleanField(default=True)
 
     def displayName(self) -> str:
         return self.title

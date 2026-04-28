@@ -131,6 +131,10 @@ Footer configuration (optional):
 - `FOOTER_LINK_LABEL` (defaults to "Deutsche Meisterschaften 2026")
 - `FOOTER_IMPRESSUM_URL` (defaults to https://www.tv-hochstetten.de/impressum)
 
+Board cycling (optional):
+- `BOARD_MAIN_SECONDS` (defaults to 20) — seconds to show the main schedule view
+- `BOARD_DETAIL_SECONDS` (defaults to 20) — seconds to show the tatami detail view
+
 ### Access Gate
 
 The `@require_access` decorator (`schedule/views.py`) protects the schedule, registrations, and slot detail views. Unauthenticated requests are redirected to `/app/access/`.

@@ -152,6 +152,9 @@ ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN", "")
 
 OIDC_ENABLED = os.environ.get("DJANGO_OIDC_ENABLED", "False") == "True"
 
+BOARD_MAIN_SECONDS = int(os.environ.get("BOARD_MAIN_SECONDS", 20))
+BOARD_DETAIL_SECONDS = int(os.environ.get("BOARD_DETAIL_SECONDS", 20))
+
 if OIDC_ENABLED:
     AUTHENTICATION_BACKENDS = [
         'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
