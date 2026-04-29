@@ -10,7 +10,7 @@
 
 <div class="container" style="padding-bottom: {% if ticker_segments %}5.5rem{% else %}0{% endif %};">
 
-    <h2 class="subtitle 4">Zeitplan für {{ day|date:"l, j F" }}</h2>
+    <h2 id="board-title" class="subtitle 4">Zeitplan für {{ day|date:"l, j F" }}</h2>
 
     {# Main view: manual slots only #}
     <div id="board-main" class="board-view">
@@ -79,18 +79,23 @@
     var MAIN_MS = {{ board_main_seconds }} * 1000;
     var DETAIL_MS = {{ board_detail_seconds }} * 1000;
     var showingDetail = false;
+    var mainTitle = "Zeitplan für {{ day|date:'l, j F' }}";
+    var detailTitle = "Nächste Ereignisse";
 
     function cycle() {
         var main = document.getElementById('board-main');
         var detail = document.getElementById('board-detail');
+        var title = document.getElementById('board-title');
         if (showingDetail) {
             detail.style.display = 'none';
             main.style.display = '';
+            title.textContent = mainTitle;
             showingDetail = false;
             setTimeout(cycle, MAIN_MS);
         } else {
             main.style.display = 'none';
             detail.style.display = '';
+            title.textContent = detailTitle;
             showingDetail = true;
             setTimeout(cycle, DETAIL_MS);
         }

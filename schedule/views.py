@@ -103,7 +103,7 @@ def event_board(request):
         slot.type = 'item'
         main_slots.append(slot)
 
-    # --- Detail view: top-2 per tatami + flagged manual slots ---
+    # --- Detail view: external slots per tatami + flagged manual slots ---
     competition_slots = (
         ExternalProvidedSlot.objects.filter(competition=competition)
         .filter(start__date=active_day)
@@ -111,38 +111,60 @@ def event_board(request):
         .order_by("tatami", "start")
     )
 
-    # Group by tatami, pick current-or-next as slot 1, next as slot 2
+    # Group by tatami
     tatami_slots = defaultdict(list)
     for slot in competition_slots:
         tatami_slots[slot.tatami].append(slot)
 
     detail_slots = []
     for tatami, slots in sorted(tatami_slots.items()):
-        # slot 1: currently active (start <= now <= end), else first upcoming
-        active = [s for s in slots if s.start <= now]
+        # Collect up to 4: current (start <= now) + upcoming, ordered by start
+        current = [s for s in slots if s.start <= now]
         upcoming = [s for s in slots if s.start > now]
-        if active:
-            top2 = [active[-1]]  # most recently started
-            if upcoming:
-                top2.append(upcoming[0])
-        else:
-            top2 = upcoming[:2]
+        top4 = (current[-1:] if current else []) + upcoming
+        top4 = top4[:4]
 
-        if not top2:
+        if not top4:
             continue
 
-        for s in top2:
-            s.title = s.category_name
-            s.round_type = s.type
-            s.type = 'subitem'
+        def make_sub_slot(s, show_time=True):
+            return {'title': s.category_name, 'start': s.start, 'round_type': s.type, 'show_time': show_time, 'placeholder': False}
+
+        # First discipline: all slots from top4 that share the same discipline
+        first_discipline = top4[0].discipline
+        first_slots = [s for s in top4 if s.discipline == first_discipline]
+
+        if len(first_slots) <= 3:
+            sub_slots = [make_sub_slot(s) for s in first_slots]
+        else:
+            sub_slots = [make_sub_slot(s) for s in first_slots[:2]]
+            sub_slots.append({'title': '...', 'start': None, 'round_type': '', 'show_time': False, 'placeholder': True})
 
         group = {
             'type': 'group',
-            'title': top2[0].discipline,
-            'start': top2[0].start,
+            'title': first_discipline,
+            'start': top4[0].start,
             'tatami': tatami,
-            'slots': top2,
+            'slots': sub_slots,
+            'second_discipline': None,
         }
+
+        # If only 1 slot in first discipline, add second discipline (medium screens only)
+        if len(first_slots) == 1:
+            rest = [s for s in top4 if s.discipline != first_discipline]
+            if rest:
+                second_discipline = rest[0].discipline
+                second_slots_all = [s for s in rest if s.discipline == second_discipline]
+                second_sub = [make_sub_slot(s) for s in second_slots_all[:2]]
+                if len(second_slots_all) > 2:
+                    second_sub.append({'title': '...', 'start': None, 'round_type': '', 'show_time': False, 'placeholder': True})
+                group['second_discipline'] = {
+                    'title': second_discipline,
+                    'start': rest[0].start,
+                    'tatami': tatami,
+                    'slots': second_sub,
+                }
+
         detail_slots.append(group)
 
     # Add manual slots flagged for detail view

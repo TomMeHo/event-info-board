@@ -2,22 +2,29 @@
     <div class="row align-items-center g-2 m-1">
         <div class="col-md-2 pt-1 text-center">
             <span class="fs-2">
-                {{ slot.start|date:"H:i" }}
+                {% if slot.type == "group" or slot.type == "item" %}
+                    {{ slot.start|date:"H:i" }}
+                {% endif %}
             </span>
+            {% if slot.tatami %}
+                <br><span class="badge text-bg-secondary fs-5">Tatami {{slot.tatami}}</span>
+            {% endif %}
         </div>
-        <div class="col-md-8 p-auto">
+        <div class="{% if slot.second_discipline %}col-md-5{% else %}col-md-10{% endif %} p-auto">
             <span class="fs-2">{{slot.title}}</span>
             {% if slot.type == "group" %}
                 <ul>
-                    {% for sub_slot in slot.slots %}
+                    {% for sub in slot.slots %}
                     <li>
                         <span class="fs-4">
-                            {% if slot.slots|length > 1 %}
-                                {{ sub_slot.start|date:"H:i" }}
-                            {% endif %}
-                            {{ sub_slot.title }} 
-                            {% if sub_slot.round_type == "final" %}
-                                <span class="badge text-bg-warning">Final</span>
+                            {% if sub.placeholder %}
+                                <span class="text-muted">...</span>
+                            {% else %}
+                                {% if slot.slots|length > 1 and sub.show_time %}{{ sub.start|date:"H:i" }} {% endif %}
+                                {{ sub.title }}
+                                {% if sub.round_type == "final" %}
+                                    <span class="badge text-bg-warning">Final</span>
+                                {% endif %}
                             {% endif %}
                         </span>
                     </li>
@@ -25,10 +32,28 @@
                 </ul>
             {% endif %}
         </div>
-        {% if slot.tatami %}
-            <div class="col-md-1 p-auto text-center">
-                <span class="badge text-bg-secondary fs-5">Tatami {{slot.tatami}}</span>
+        {% if slot.second_discipline %}
+            {% with d=slot.second_discipline %}
+            <div class="col-md-5 p-auto d-none d-md-block border-start border-secondary-subtle">
+                <span class="fs-2">{{ d.title }}</span>
+                <ul>
+                    {% for sub in d.slots %}
+                    <li>
+                        <span class="fs-4">
+                            {% if sub.placeholder %}
+                                <span class="text-muted">...</span>
+                            {% else %}
+                                {{ sub.start|date:"H:i" }} {{ sub.title }}
+                                {% if sub.round_type == "final" %}
+                                    <span class="badge text-bg-warning">Final</span>
+                                {% endif %}
+                            {% endif %}
+                        </span>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
+            {% endwith %}
         {% endif %}
     </div>
 </div>

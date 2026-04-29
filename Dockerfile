@@ -5,7 +5,7 @@ FROM python:3.12-slim AS builder
 RUN mkdir /app
 WORKDIR /app
  
-RUN apt-get upgrade && apt-get update
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables to optimize Python
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -24,6 +24,8 @@ RUN pipenv install --system --deploy
 
 # Stage 2: Production stage
 FROM python:3.12-slim
+
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m -r appuser && \
     mkdir /app && \
