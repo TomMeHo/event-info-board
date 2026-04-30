@@ -16,6 +16,7 @@ django = ">=6.0.3"
 urllib3 = ">=2.6.3"
 wheel = ">=0.46.2"
 mozilla-django-oidc = "*"
+cryptography = ">=46.0.7"
 
 [dev-packages]
 coverage = "*"

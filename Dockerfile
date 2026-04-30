@@ -27,6 +27,8 @@ FROM python:3.12-slim
 
 RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 
+RUN pip install --upgrade pip
+
 RUN useradd -m -r appuser && \
     mkdir /app && \
     chown -R appuser /app
