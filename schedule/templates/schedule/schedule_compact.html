@@ -8,8 +8,6 @@
 {% include 'schedule/includes/page_header.html' %}
 
 <div class="container">
-    <h2 class="mb-4">Zeitplan</h2>
-
     {% if event %}
     {% for day in days %}
     <h3 class="mt-4 mb-3">{{ day.date|date:"l, j. F Y" }}</h3>
@@ -56,10 +54,6 @@
     <div class="alert alert-info">Kein Zeitplan vorhanden.</div>
     {% endfor %}
     {% endif %}
-
-    <div class="mt-4">
-        <a href="{% url 'registrations_list' %}" class="btn btn-outline-secondary">Teilnehmerliste</a>
-    </div>
 
     {% include 'schedule/includes/page_footer.html' %}
 </div>

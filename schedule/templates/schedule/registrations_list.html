@@ -10,8 +10,6 @@
 {% include 'schedule/includes/page_header.html' %}
 
 <div class="container">
-    <h2 class="mb-4">Teilnehmerliste</h2>
-
     {% if event %}
     <form method="get" class="row g-3 mb-4">
         <div class="col-md-4">
@@ -62,10 +60,6 @@
 
     <p class="text-muted">{{ registrations|length }} Teilnehmer gefunden</p>
     {% endif %}
-
-    <div class="mt-4">
-        <a href="{% url 'schedule_compact' %}" class="btn btn-outline-secondary">Zeitplan</a>
-    </div>
 
     {% include 'schedule/includes/page_footer.html' %}
 </div>

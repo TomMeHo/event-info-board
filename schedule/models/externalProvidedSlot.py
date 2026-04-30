@@ -86,6 +86,6 @@ class ExternalProvidedSlot(Slot):
         txt = txt.replace("RandomAttack", "Random Attack")
         txt = txt.replace("GroundFightingOpen", "Bodenkampf, offene Klasse")
         txt = txt.replace("GroundFighting", "Bodenkampf")
-        txt = txt.replace("MALE", "Männer")
         txt = txt.replace("FEMALE", "Frauen")
+        txt = txt.replace("MALE", "Männer")
         return txt

@@ -326,10 +326,11 @@ def schedule_compact(request):
         start__gte=now
     ).order_by('start', 'tatami')
 
-    # Get manually created Slots (base Slot, not ExternalProvidedSlot) - filter out past events
+    # Get manually created Slots (base Slot, not ExternalProvidedSlot) - filter out past events and hidden slots
     manual_slots = Slot.objects.filter(
         competition=competition,
-        start__gte=now
+        start__gte=now,
+        show_on_detail=True,
     ).non_polymorphic().filter(
         polymorphic_ctype=ContentType.objects.get_for_model(Slot)
     ).order_by('start')
@@ -365,9 +366,9 @@ def schedule_compact(request):
             'is_external': False,
         })
 
-    # Sort slots within each day by start time
+    # Sort slots within each day: by start time, manual slots before external at same time
     for day_key in days:
-        days[day_key].sort(key=lambda s: s['start'])
+        days[day_key].sort(key=lambda s: (s['start'], 1 if s['is_external'] else 0))
 
     # Convert to list of dicts sorted by date
     days_list = [{'date': date, 'slots': slots} for date, slots in sorted(days.items())]

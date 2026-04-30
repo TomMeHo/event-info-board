@@ -12,7 +12,7 @@
 <div class="container">
     <div class="card mb-4">
         <div class="card-header">
-            <h2 class="mb-0">{{ competitor.givenName }} {{ competitor.name }}</h2>
+            <h2 class="mb-0">{{ competitor.name }} {{ competitor.givenName }}</h2>
         </div>
         <div class="card-body">
             <div class="row">
@@ -61,7 +61,7 @@
                     <td colspan="3"><strong>{{ slot.start|date:"l" }}</strong></td>
                 </tr>
                 {% endifchanged %}
-                <tr>
+                <tr style="cursor: pointer;" onclick="window.location='{% url 'slot_detail' slot.id %}'">
                     <td class="d-none d-md-table-cell">{% ifchanged slot.start|date:"Y-m-d" %}{{ slot.start|date:"l" }}{% endifchanged %}</td>
                     <td>{{ slot.start|date:"H:i" }} - {{ slot.end|date:"H:i" }}</td>
                     <td>{{ slot.discipline }}{% if slot.type == "final" %} <span class="badge bg-warning text-dark float-end">Finale</span>{% endif %}<span class="d-md-none"><br><i>{{ slot.category_name }}</i></span></td>
@@ -84,7 +84,7 @@
 
     {% if random_attack_entries or ground_fighting_entries or ground_fighting_open_entries or pairs_entries or kata_entries or team_entries %}
     <hr class="mt-4">
-    <h3 class="mb-3 mt-4">Disziplinen</h3>
+    <h3 class="mb-3 mt-4">Anmeldungen</h3>
     {% endif %}
 
     {% if random_attack_entries %}
@@ -240,11 +240,6 @@
         </table>
     </div>
     {% endif %}
-
-    <div class="mt-4">
-        <a href="{% url 'registrations_list' %}" class="btn btn-outline-secondary">Teilnehmerliste</a>
-        <a href="{% url 'schedule_compact' %}" class="btn btn-outline-secondary">Zeitplan</a>
-    </div>
 
     {% include 'schedule/includes/page_footer.html' %}
 </div>
