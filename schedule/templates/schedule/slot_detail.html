@@ -34,15 +34,24 @@
                             <span class="badge {% if slot.tatami == 3 %}bg-warning text-dark{% else %}bg-secondary{% endif %}">3</span>
                         </dd>
 
+                        {% if slot.discipline != "Team" %}
                         <dt class="col-sm-4">Teilnehmer</dt>
                         <dd class="col-sm-8">{{ registrations|length }}</dd>
+                        {% endif %}
                     </dl>
                 </div>
             </div>
         </div>
     </div>
 
+    {% if slot.discipline != "Team" %}
     <h3 class="mb-3">Teilnehmer</h3>
+
+    {% if slot.type == "final" %}
+    <div><span class="badge bg-info text-dark">Hinweis</span>
+        <span> Es werden alle potentiellen Teilnehmer angezeigt, unabhängig von der Qualifizierung für die Finals.</span>
+    </div>
+    {% endif %}
 
     {% if registrations %}
     <div class="table-responsive">
@@ -69,8 +78,9 @@
     </div>
     {% else %}
     <div class="alert alert-info">
-        Keine Teilnehmer zugewiesen.
+        Es sind keine Teilnehmer zugewiesen.
     </div>
+    {% endif %}
     {% endif %}
 
     {% include 'schedule/includes/page_footer.html' %}
