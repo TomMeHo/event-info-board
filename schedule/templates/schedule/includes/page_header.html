@@ -13,18 +13,3 @@
         </div>
     </div>
 </div>
-
-<nav class="navbar sticky-top bg-body-tertiary border-bottom border-secondary-subtle mb-3">
-    <div class="container">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.url_name == 'schedule_compact' or request.resolver_match.url_name == 'slot_detail' %}active{% endif %}"
-                   href="{% url 'schedule_compact' %}">Zeitplan</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.url_name == 'registrations_list' or request.resolver_match.url_name == 'registration_detail' %}active{% endif %}"
-                   href="{% url 'registrations_list' %}">Teilnehmerliste</a>
-            </li>
-        </ul>
-    </div>
-</nav>

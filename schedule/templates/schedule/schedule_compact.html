@@ -6,9 +6,34 @@
 {% load static %}
 
 {% include 'schedule/includes/page_header.html' %}
+{% include 'schedule/includes/page_header_nav.html' %}
 
 <div class="container">
     {% if event %}
+
+    {% if tatami_values %}
+    <div class="mb-3 mt-3 d-flex flex-wrap gap-2 align-items-center">
+        <span class="d-none d-md-inline text-secondary ms-2">Disziplin:</span>
+        <select class="form-select form-select-sm w-auto" onchange="
+            var params = new URLSearchParams(window.location.search);
+            params.set('discipline', this.value);
+            window.location.search = params.toString();
+        ">
+            <option value="" {% if not discipline_filter %}selected{% endif %}>Alle Disziplinen</option>
+            {% for d in discipline_values %}
+            <option value="{{ d }}" {% if discipline_filter == d %}selected{% endif %}>{{ d }}</option>
+            {% endfor %}
+        </select>
+
+        <a href="?tatami={{ tatami_filter }}&discipline={{ discipline_filter }}{% if not show_past %}&show_past=1{% endif %}" class="btn btn-sm {% if show_past %}btn-warning{% else %}btn-outline-secondary{% endif %} ms-auto"><span class="d-none d-md-inline">Vergangene Anzeigen</span><span class="d-md-none">Vergangene</span></a>
+
+        <a href="?tatami=&discipline={{ discipline_filter }}{% if show_past %}&show_past=1{% endif %}" class="btn btn-sm {% if not tatami_filter %}btn-warning{% else %}btn-outline-secondary{% endif %}">Alle</a>
+        {% for t in tatami_values %}
+            <a href="?tatami={{ t }}&discipline={{ discipline_filter }}{% if show_past %}&show_past=1{% endif %}" class="btn btn-sm {% if tatami_filter == t|stringformat:'s' %}btn-warning{% else %}btn-outline-secondary{% endif %}">{{ t }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
     {% for day in days %}
     <h3 class="mt-4 mb-3">{{ day.date|date:"l, j. F Y" }}</h3>
     <div class="table-responsive">

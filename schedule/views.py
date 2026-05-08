@@ -320,20 +320,52 @@ def schedule_compact(request):
     # Current time in Europe/Berlin (CET+1)
     now = datetime.now()
 
-    # Get ExternalProvidedSlots - filter out past events
-    external_slots = ExternalProvidedSlot.objects.filter(
-        competition=competition,
-        start__gte=now
-    ).order_by('start', 'tatami')
+    # Tatami filter
+    tatami_filter = request.GET.get('tatami', '')
+    try:
+        tatami_filter_int = int(tatami_filter) if tatami_filter else None
+    except ValueError:
+        tatami_filter_int = None
 
-    # Get manually created Slots (base Slot, not ExternalProvidedSlot) - filter out past events and hidden slots
+    # Discipline filter
+    discipline_filter = request.GET.get('discipline', '')
+
+    # Past slots filter: show_past=1 includes past slots
+    show_past = request.GET.get('show_past', '') == '1'
+
+    # Get ExternalProvidedSlots
+    external_slots_qs = ExternalProvidedSlot.objects.filter(competition=competition)
+    if not show_past:
+        external_slots_qs = external_slots_qs.filter(start__gte=now)
+    if tatami_filter_int:
+        external_slots_qs = external_slots_qs.filter(tatami=tatami_filter_int)
+    if discipline_filter:
+        external_slots_qs = external_slots_qs.filter(discipline=discipline_filter)
+    external_slots = external_slots_qs.order_by('start', 'tatami')
+
+    # Get manually created Slots (base Slot, not ExternalProvidedSlot) - hidden slots excluded
     manual_slots = Slot.objects.filter(
         competition=competition,
-        start__gte=now,
         show_on_detail=True,
     ).non_polymorphic().filter(
         polymorphic_ctype=ContentType.objects.get_for_model(Slot)
-    ).order_by('start')
+    )
+    if not show_past:
+        manual_slots = manual_slots.filter(start__gte=now)
+    # manual slots have no discipline — hide them when a discipline filter is active
+    if discipline_filter:
+        manual_slots = manual_slots.none()
+    manual_slots = manual_slots.order_by('start')
+
+    # Distinct filter values for filter UI
+    tatami_values = sorted(
+        ExternalProvidedSlot.objects.filter(competition=competition)
+        .values_list('tatami', flat=True).distinct()
+    )
+    discipline_values = sorted(
+        ExternalProvidedSlot.objects.filter(competition=competition)
+        .values_list('discipline', flat=True).distinct()
+    )
 
     # Group by date
     days = {}
@@ -376,6 +408,11 @@ def schedule_compact(request):
     context = {
         'event': competition,
         'days': days_list,
+        'tatami_values': tatami_values,
+        'tatami_filter': tatami_filter,
+        'discipline_values': discipline_values,
+        'discipline_filter': discipline_filter,
+        'show_past': show_past,
     }
 
     return HttpResponse(loader.get_template("schedule/schedule_compact.html").render(context, request))
